@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_white_off1"
+    android:backgroundTint="@color/md_white_off1"
+    tools:context=".Admin.OTPVerify">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_code"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/bubblegum_sans"
+            android:gravity="center"
+            android:text="CO\nDE"
+            android:textAllCaps="true"
+            android:textColor="@color/md_blue_900"
+            android:textSize="100sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_code_verify"
+            app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+            app:layout_constraintTop_toTopOf="@id/horizontal_start_guideline" />
+
+        <TextView
+            android:id="@+id/tv_code_verify"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bubblegum_sans"
+            android:gravity="center"
+            android:text="Verification"
+            android:textAllCaps="true"
+            android:textColor="@color/md_blue_900"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_desc"
+            app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/tv_code" />
+
+
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/bubblegum_sans"
+            android:gravity="center"
+            android:text="Enter the OTP Sent on your given phone number"
+            android:textColor="@color/md_blue_900"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toTopOf="@+id/otp_pin"
+            app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/tv_code_verify" />
+
+        <com.chaos.view.PinView
+            android:id="@+id/otp_pin"
+            style="@style/PinWidget.PinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:width="50dp"
+            android:height="50dp"
+            android:cursorVisible="true"
+            android:inputType="number"
+            android:itemBackground="@color/md_white_off"
+            android:padding="9dp"
+            app:cursorColor="@color/black"
+            app:itemCount="5"
+            app:itemRadius="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_verify"
+            app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/tv_desc"
+            app:lineColor="@color/colorAccent" />
+
+        <Button
+            android:id="@+id/btn_verify"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_button"
+            android:elevation="10dp"
+            android:fontFamily="@font/bubblegum_sans"
+            android:text="Verify"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/horizontal_end_guideline"
+            app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/otp_pin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_start_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_end_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/horizontal_start_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/horizontal_end_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="20dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_blue_900"
+    android:backgroundTint="@color/md_blue_900"
+    tools:context=".LoginActivity">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/client"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:background="@color/md_white_off1"
+        android:backgroundTint="@color/md_white_off1"
+        app:cardCornerRadius="80dp"
+        app:cardElevation="20dp"
+        app:cardMaxElevation="20dp"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal_end_guideline"
+        app:layout_constraintEnd_toStartOf="@+id/admin"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+        app:layout_constraintTop_toTopOf="@id/horizontal_start_guideline">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/client_admin" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_client"
+        android:layout_width="160dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/bubblegum_sans"
+        android:text="@string/client"
+        android:gravity="center"
+        android:textColor="@color/md_blue_300"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_admin"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/client" />
+
+    <TextView
+        android:id="@+id/tv_admin"
+        android:layout_width="160dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/bubblegum_sans"
+        android:text="@string/admin"
+        android:gravity="center"
+        android:textColor="@color/md_white_off1"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_end_guideline"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tv_client"
+        app:layout_constraintTop_toBottomOf="@+id/client" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/admin"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:background="@color/md_white_off1"
+        android:backgroundTint="@color/md_white_off1"
+        app:cardCornerRadius="80dp"
+        app:cardElevation="20dp"
+        app:cardMaxElevation="20dp"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal_end_guideline"
+        app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/client"
+        app:layout_constraintTop_toTopOf="@id/horizontal_start_guideline">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/client_admin" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_start_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_end_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal_start_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal_end_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="20dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_white_off1"
+    android:backgroundTint="@color/md_white_off1"
+    tools:context=".Admin.AdminSignup2">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_admin_signup_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="Create\nAccount"
+            android:fontFamily="@font/bubblegum_sans"
+            android:textAllCaps="true"
+            android:textColor="@color/md_blue_900"
+            android:textSize="40sp"
+            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+            app:layout_constraintTop_toTopOf="@id/horizontal_start_guideline"/>
+
+        <LinearLayout
+            android:id="@+id/linear1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="5dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+            app:layout_constraintTop_toBottomOf="@id/tv_admin_signup_label"
+            app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Choose Gender"
+                android:fontFamily="@font/bubblegum_sans"
+                android:textColor="@color/md_blue_900"
+                android:textSize="20sp"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                >
+                <RadioButton
+                    android:id="@+id/radio_male"
+                    android:text="Male"
+                    android:buttonTint="@color/md_blue_900"
+                    android:textColor="@color/md_blue_900"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <RadioButton
+                    android:id="@+id/radio_female"
+                    android:text="Female"
+                    android:buttonTint="@color/md_blue_900"
+                    android:textColor="@color/md_blue_900"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <RadioButton
+                    android:id="@+id/radio_other"
+                    android:text="other"
+                    android:buttonTint="@color/md_blue_900"
+                    android:textColor="@color/md_blue_900"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/md_blue_900"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Your Age"
+                android:textColor="@color/md_blue_900"
+                android:fontFamily="@font/bubblegum_sans"
+                android:textSize="20sp"/>
+
+            <DatePicker
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:datePickerMode="spinner"
+                android:calendarViewShown="false"
+                android:spinnersShown="true" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_button"
+            android:layout_marginTop="20dp"
+            android:text="Next"
+            android:fontFamily="@font/bubblegum_sans"
+            android:textColor="@color/white"
+            android:elevation="10dp"
+            app:layout_constraintTop_toBottomOf="@id/linear1"
+            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+            app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+            />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:text="@string/login"
+            android:textColor="@color/md_blue_900"
+            android:fontFamily="@font/bubblegum_sans"
+            android:elevation="10dp"
+            app:layout_constraintTop_toBottomOf="@id/btn_next"
+            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+            app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+            app:layout_constraintBottom_toBottomOf="@id/horizontal_end_guideline"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_start_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_end_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/horizontal_start_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/horizontal_end_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="20dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
