@@ -25,6 +25,7 @@
         app:layout_constraintTop_toTopOf="@id/horizontal_start_guideline">
 
         <ImageView
+            android:id="@+id/img_client"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/client_admin" />
@@ -77,6 +78,7 @@
         app:layout_constraintTop_toTopOf="@id/horizontal_start_guideline">
 
         <ImageView
+            android:id="@+id/img_admin"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/client_admin" />
