@@ -65,6 +65,7 @@
                 android:hint="Email"
                 android:textColorHint="@color/md_blue_900"
                 app:boxStrokeColor="@color/md_blue_900"
+                android:layout_marginTop="10dp"
                 app:boxStrokeWidthFocused="2dp"
                 app:startIconDrawable="@drawable/ic_name"
                 app:startIconTint="@color/md_blue_900">
@@ -86,6 +87,7 @@
                 android:textColorHint="@color/md_blue_900"
                 app:boxStrokeColor="@color/md_blue_900"
                 app:boxStrokeWidthFocused="2dp"
+                android:layout_marginTop="10dp"
                 app:startIconDrawable="@drawable/password_icon"
                 app:startIconTint="@color/md_blue_900">
                 <com.google.android.material.textfield.TextInputEditText
@@ -107,6 +109,7 @@
                 app:boxStrokeColor="@color/md_blue_900"
                 app:boxStrokeWidthFocused="2dp"
                 app:startIconDrawable="@drawable/password_icon"
+                android:layout_marginTop="10dp"
                 app:startIconTint="@color/md_blue_900">
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"

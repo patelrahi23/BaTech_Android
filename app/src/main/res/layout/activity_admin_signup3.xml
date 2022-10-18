@@ -52,6 +52,7 @@
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:hint="Phone Number"
+                android:layout_marginTop="10dp"
                 android:textColorHint="@color/md_blue_900"
                 app:boxStrokeColor="@color/md_blue_900"
                 app:boxStrokeWidthFocused="2dp"
@@ -76,12 +77,13 @@
                 android:textColorHint="@color/md_blue_900"
                 app:boxStrokeColor="@color/md_blue_900"
                 app:boxStrokeWidthFocused="2dp"
+                android:layout_marginTop="10dp"
                 app:startIconDrawable="@drawable/ic_designation"
                 app:startIconTint="@color/md_blue_900">
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
+                    android:inputType="text"
                     android:fontFamily="@font/bubblegum_sans"
                     android:textColor="@color/md_blue_900">
                 </com.google.android.material.textfield.TextInputEditText>
