@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/md_white_off1"
     android:backgroundTint="@color/md_white_off1"
-    tools:context=".Admin.AdminSignup2">
+    tools:context=".Login.Signup2">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

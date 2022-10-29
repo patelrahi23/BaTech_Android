@@ -5,10 +5,9 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
-import com.example.batech_1.Admin.AdminLogin;
+import com.example.batech_1.Login.Login;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -26,13 +25,13 @@ public class LoginActivity extends AppCompatActivity {
         tv_admin = findViewById(R.id.tv_admin);
 
         cv_client.setOnClickListener(view -> {
-            Intent intent = new Intent(LoginActivity.this, AdminLogin.class);
+            Intent intent = new Intent(LoginActivity.this, Login.class);
             startActivity(intent);
 
         });
 
         tv_client.setOnClickListener(view ->{
-            Intent intent = new Intent(LoginActivity.this, AdminLogin.class);
+            Intent intent = new Intent(LoginActivity.this, Login.class);
             startActivity(intent);
         });
 

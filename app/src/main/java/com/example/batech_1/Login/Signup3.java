@@ -1,4 +1,4 @@
-package com.example.batech_1.Admin;
+package com.example.batech_1.Login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,7 @@ import android.widget.Button;
 
 import com.example.batech_1.R;
 
-public class AdminSignup3 extends AppCompatActivity {
+public class Signup3 extends AppCompatActivity {
     Button btn_verify, btn_login;
 
     @Override
@@ -19,7 +19,7 @@ public class AdminSignup3 extends AppCompatActivity {
         btn_verify = findViewById(R.id.btn_verify);
 
         btn_verify.setOnClickListener(view -> {
-            Intent intent = new Intent(AdminSignup3.this,OTPVerify.class);
+            Intent intent = new Intent(Signup3.this,OTPVerify.class);
             startActivity(intent);
 
         });
