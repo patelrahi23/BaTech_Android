@@ -9,6 +9,8 @@ import android.os.Handler;
 import android.view.View;
 import android.window.SplashScreen;
 
+import com.example.batech_1.Login.Login;
+
 @SuppressLint("CustomSplashScreen")
 public class Splashscreen extends AppCompatActivity {
 
@@ -19,7 +21,7 @@ public class Splashscreen extends AppCompatActivity {
 
 
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(Splashscreen.this,LoginActivity.class);
+            Intent intent = new Intent(Splashscreen.this, Login.class);
             startActivity(intent);
             finish();
         },2500);

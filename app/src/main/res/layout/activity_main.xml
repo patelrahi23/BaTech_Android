@@ -11,21 +11,30 @@
 
     <ImageView
         android:id="@+id/splash_transparent"
-        android:layout_width="0dp"
-        android:layout_height="350dp"
-        app:layout_constraintBottom_toBottomOf="@id/horizontal_end_guideline"
-        app:layout_constraintDimensionRatio=""
-        app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
-        app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
-        app:layout_constraintTop_toTopOf="@id/horizontal_start_guideline" />
-
-    <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@mipmap/batech_dark_transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+        app:layout_constraintTop_toTopOf="@id/horizontal_start_guideline"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:indeterminateDrawable="@drawable/custom_progressbar"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal_end_guideline"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/splash_transparent" />
+        app:layout_constraintTop_toBottomOf="@+id/splash_transparent"
+        app:layout_constraintVertical_bias="0.5" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/vertical_start_guideline"
