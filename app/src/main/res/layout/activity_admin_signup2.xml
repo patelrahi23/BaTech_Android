@@ -45,6 +45,7 @@
                 android:textSize="20sp"/>
 
             <RadioGroup
+                android:id="@+id/radiosexgroup"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
@@ -91,6 +92,7 @@
                 android:textSize="20sp"/>
 
             <DatePicker
+                android:id="@+id/datepicker1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:datePickerMode="spinner"

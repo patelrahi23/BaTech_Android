@@ -4,14 +4,9 @@ public class UserClass {
 
 String fname, email,pass, ph_number, gender, DOB, organisation;
 
-    public UserClass(String fname, String email, String pass, String ph_number, String gender, String DOB, String organisation) {
-        this.fname = fname;
-        this.email = email;
-        this.pass = pass;
-        this.ph_number = ph_number;
-        this.gender = gender;
-        this.DOB = DOB;
-        this.organisation = organisation;
+
+    public UserClass(){
+
     }
 
     public String getFname() {
