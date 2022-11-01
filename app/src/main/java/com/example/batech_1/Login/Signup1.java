@@ -64,8 +64,8 @@ public class Signup1 extends AppCompatActivity {
                         // saving name, email, password in shared_Preference
                         user = new UserClass();
                         user.setFname(fname);
-                        user.setFname(email);
-                        user.setFname(pass);
+                        user.setEmail(email);
+                        user.setPass(pass);
 
                         SharedPrefHelper.setSharedPrefrences(this, "NameEmailPassword", user);
                         Intent intent = new Intent(Signup1.this, Signup2.class);
