@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "503814671960",
+    "project_id": "batech-58535",
+    "storage_bucket": "batech-58535.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:503814671960:android:075f0d2d32b1013c1f842d",
+        "android_client_info": {
+          "package_name": "com.example.batech_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "503814671960-6oaa98mon6agst4jbft2sg11push738t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.batech_1",
+            "certificate_hash": "8d436a98b122366c8b513382b75edab1cdd1f8dc"
+          }
+        },
+        {
+          "client_id": "503814671960-sqc0j9ml08ldeclvtue0th7kjoj6o6j0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCV57Rw4c9w5PgJaXaO6JJrZsY_yaMaGw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "503814671960-sqc0j9ml08ldeclvtue0th7kjoj6o6j0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
