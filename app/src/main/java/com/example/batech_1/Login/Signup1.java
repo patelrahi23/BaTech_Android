@@ -54,12 +54,9 @@ public class Signup1 extends AppCompatActivity {
             pass = Objects.requireNonNull(et_pass.getEditText()).getText().toString();
             confirm_pass = Objects.requireNonNull(et_con_pass.getEditText()).getText().toString();
 
-            Toast.makeText(getApplicationContext(), fname, Toast.LENGTH_SHORT).show();
-
-
 
             if (CheckFields(et_fname) && CheckFields(et_con_pass) && CheckFields(et_pass) && CheckFields(et_uname)) {
-                if (isValidPassword(pass) ) {
+                if (isValidPassword(pass)) {
                     if (pass.equals(confirm_pass)) {
                         // saving name, email, password in shared_Preference
                         user = new UserClass();
@@ -75,12 +72,8 @@ public class Signup1 extends AppCompatActivity {
                         et_con_pass.setError("Password Does Not Match");
 
                     }
-                    if(et_pass.requestFocus()){
-                        et_pass.setErrorEnabled(false);
-                    }else if(et_con_pass.requestFocus()){
-                        et_con_pass.setErrorEnabled(false);
-                    }
-                }else{
+
+                } else {
                     et_pass.setError("Password is Weak. Please Enter a Password that has a Letter, a Number and a Special Symbol.");
                 }
             }
@@ -107,8 +100,8 @@ public class Signup1 extends AppCompatActivity {
         String PASSWORD_PATTERN
                 =
                 "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$";
-       p = Pattern.compile(PASSWORD_PATTERN);
-       m= p.matcher(password);
+        p = Pattern.compile(PASSWORD_PATTERN);
+        m = p.matcher(password);
         return m.matches();
     }
 }

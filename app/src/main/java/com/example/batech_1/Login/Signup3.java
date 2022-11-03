@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.batech_1.LoginActivity;
 import com.example.batech_1.ModelClasses.UserClass;
 import com.example.batech_1.R;
 import com.example.batech_1.SharedPrefHelper;
@@ -37,8 +38,9 @@ public class Signup3 extends AppCompatActivity {
         setContentView(R.layout.activity_admin_signup3);
 
         btn_verify = findViewById(R.id.btn_verify);
+        btn_login = findViewById(R.id.btn_login);
         et_phone = findViewById(R.id.et_phone);
-        ccp = (CountryCodePicker) findViewById(R.id.ccp);
+        ccp =  findViewById(R.id.ccp);
         et_designation = findViewById(R.id.et_designation);
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -46,6 +48,11 @@ public class Signup3 extends AppCompatActivity {
 
         user = new UserClass();
 
+
+        btn_login.setOnClickListener(view->{
+            startActivity(new Intent(Signup3.this, Login.class));
+            finish();
+        });
 
         btn_verify.setOnClickListener(view -> {
 
