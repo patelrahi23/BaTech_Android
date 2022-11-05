@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_home"
+            android:title="Home"
+            android:icon="@drawable/nav_icon_home"/>
+        <item android:id="@+id/nav_aboutus"
+            android:title="About Us"
+            android:icon="@drawable/nav_icon_search"/>
+        <item android:id="@+id/nav_machines"
+            android:title="Machines"
+            android:icon="@drawable/nav_machines"/>
+        <item android:id="@+id/nav_forms"
+            android:title="Forms"
+            android:icon="@drawable/nav_icon_forms"/>
+
+    </group>
+</menu>

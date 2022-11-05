@@ -34,8 +34,6 @@ public class Login extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseFirestore firestore;
     boolean valid = true;
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
     UserClass user = null;
 
 
