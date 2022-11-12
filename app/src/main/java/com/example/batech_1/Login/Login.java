@@ -72,6 +72,7 @@ public class Login extends AppCompatActivity {
                     SharedPrefHelper.setSharedPrefrences(this,"EmailPassword",user);
 
                 }
+
                 firebaseAuth.signInWithEmailAndPassword(email,pass).addOnSuccessListener(authResult -> {
                     CheckUser(Objects.requireNonNull(authResult.getUser()).getUid());
                 }).addOnFailureListener(e -> {
@@ -114,6 +115,13 @@ public class Login extends AppCompatActivity {
         super.onStart();
 
         checkSetEmailPass();
+
+        if(firebaseAuth.getCurrentUser() == null){
+            checkSetEmailPass();
+        }
+        else{
+            CheckUser(firebaseAuth.getCurrentUser().getUid());
+        }
     }
 
     @Override
@@ -121,12 +129,23 @@ public class Login extends AppCompatActivity {
         super.onRestart();
 
         checkSetEmailPass();
+        if(firebaseAuth.getCurrentUser() == null){
+            checkSetEmailPass();
+        }
+        else{
+            CheckUser(firebaseAuth.getCurrentUser().getUid());
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
+        if(firebaseAuth.getCurrentUser() == null){
+            checkSetEmailPass();
+        }
+        else{
+            CheckUser(firebaseAuth.getCurrentUser().getUid());
+        }
         checkSetEmailPass();
     }
 

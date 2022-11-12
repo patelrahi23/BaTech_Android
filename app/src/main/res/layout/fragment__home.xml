@@ -1,15 +1,458 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Dashboards.ClientDashboards.Fragments.Fragment_Home">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/black"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/tv_at_batech"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="5dp"
+            android:text="At Batech We Provide:"
+            android:textColor="@color/md_blue_900"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/card_1"
+            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+            app:layout_constraintTop_toTopOf="@id/horizontal_start_guideline" />
+
+
+        <RelativeLayout
+            android:id="@+id/card_1"
+            android:layout_width="0dp"
+            android:layout_height="190dp"
+            android:background="@color/transparent"
+            android:backgroundTint="@color/transparent"
+            app:layout_constraintBottom_toTopOf="@+id/card_2"
+            app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/tv_at_batech">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:layout_margin="20dp"
+                android:background="@color/md_blue_900">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:padding="25dp"
+                    android:text="Printing Services"
+                    android:textColor="@color/md_white_off"
+                    android:textSize="25sp" />
+
+                <Button
+                    android:id="@+id/btn_print"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="#00000000"
+                    android:padding="20dp"
+                    android:text="View in Browser"
+                    android:textColor="@color/md_white_off" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/print_services"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="end"
+                android:layout_marginTop="-20dp"
+                android:src="@mipmap/printing_services" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/card_2"
+            android:layout_width="0dp"
+            android:layout_height="190dp"
+            android:background="@color/transparent"
+            android:backgroundTint="@color/transparent"
+            app:layout_constraintBottom_toTopOf="@+id/card_3"
+            app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/card_1">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:layout_margin="20dp"
+                android:background="@color/md_blue_900">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_toRightOf="@id/screen_print"
+                    android:padding="14dp"
+                    android:text="Screen Printing Services"
+                    android:textColor="@color/md_white_off"
+                    android:textSize="25sp" />
+
+                <ImageView
+                    android:id="@+id/screen_print"
+                    android:layout_width="122dp"
+                    android:layout_height="122dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:src="@mipmap/screen_printing" />
+
+                <Button
+                    android:id="@+id/btn_screen_print"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:background="#00000000"
+                    android:padding="20dp"
+                    android:text="View in Browser"
+                    android:textColor="@color/md_white_off" />
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/card_3"
+            android:layout_width="0dp"
+            android:layout_height="190dp"
+            android:background="@color/transparent"
+            android:backgroundTint="@color/transparent"
+            app:layout_constraintBottom_toTopOf="@+id/card_4"
+            app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/card_2">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:layout_margin="20dp"
+                android:background="@color/md_blue_900">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:padding="14dp"
+                    android:text="Laser Marking Services"
+                    android:textColor="@color/md_white_off"
+                    android:textSize="25sp" />
+
+
+                <Button
+                    android:id="@+id/btn_laser_print"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:background="#00000000"
+                    android:padding="20dp"
+                    android:text="View in Browser"
+                    android:textColor="@color/md_white_off" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/laser_print"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="end"
+                android:src="@mipmap/laser_print" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/card_4"
+            android:layout_width="0dp"
+            android:layout_height="190dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/transparent"
+            android:backgroundTint="@color/transparent"
+            app:layout_constraintBottom_toTopOf="@+id/tv_us_batech"
+            app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/card_3">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:layout_margin="20dp"
+                android:background="@color/md_blue_900">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_toRightOf="@id/pad_print"
+                    android:padding="14dp"
+                    android:text="Pad Printing Services"
+                    android:textColor="@color/md_white_off"
+                    android:textSize="25sp" />
+
+                <ImageView
+                    android:id="@+id/pad_print"
+                    android:layout_width="122dp"
+                    android:layout_height="122dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:src="@mipmap/pad_print" />
+
+                <Button
+                    android:id="@+id/btn_pad_print"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:background="#00000000"
+                    android:padding="20dp"
+                    android:text="View in Browser"
+                    android:textColor="@color/md_white_off" />
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_us_batech"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:padding="5dp"
+            android:text="Batech at Printing Industry:"
+            android:textColor="@color/md_blue_900"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/card_5"
+            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/card_4" />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/md_grey_400"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="15dp"
+            app:cardMaxElevation="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/card_6"
+            app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/tv_us_batech">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@color/transparent">
+
+                <TextView
+                    android:id="@+id/tv_infra_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_toEndOf="@id/infra_icon"
+                    android:padding="5dp"
+                    android:text="Infrastructure"
+                    android:textColor="@color/md_blue_900"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_infra_title"
+                    android:layout_toEndOf="@id/infra_icon"
+                    android:padding="5dp"
+                    android:text="In order to remain in-step with the needs of our clients, we have built a well-equipped infrastructure for better and faster production."
+                    android:textColor="@color/md_blue_900"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/infra_icon"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:src="@drawable/icon_infra" />
+
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/md_grey_400"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="15dp"
+            app:cardMaxElevation="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/card_7"
+            app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/card_5">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@color/transparent">
+
+                <TextView
+                    android:id="@+id/tv_quality_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_toEndOf="@id/quality_icon"
+                    android:padding="5dp"
+                    android:text="Quality"
+                    android:textColor="@color/md_blue_900"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_quality_title"
+                    android:layout_toEndOf="@id/quality_icon"
+                    android:padding="5dp"
+                    android:text="With our experts continuously making tremendous strides in technological advancements, our machines offer impeccable quality, one that remains unmatched by our competitors."
+                    android:textColor="@color/md_blue_900"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/quality_icon"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:src="@drawable/icon_quality" />
+
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/md_grey_400"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="15dp"
+            app:cardMaxElevation="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_contact_us"
+            app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/card_6">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@color/transparent">
+
+                <TextView
+                    android:id="@+id/tv_vision_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_toEndOf="@id/vision_icon"
+                    android:padding="5dp"
+                    android:text="Vision"
+                    android:textColor="@color/md_blue_900"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_vision_title"
+                    android:layout_toEndOf="@id/vision_icon"
+                    android:padding="5dp"
+                    android:text="Our vision behind this initiative has always been the provision of optimum value to our customers. It is our commitment of quality to our clients that has made BATECH an industry leader in Pad and Pen Printing machines as well as Laser Marking machines."
+                    android:textColor="@color/md_blue_900"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/vision_icon"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:src="@drawable/icon_vision" />
+
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btn_contact_us"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_contact_us"
+            android:text="Contact Us"
+            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/horizontal_end_guideline"
+            app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/card_7" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_start_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_end_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/horizontal_start_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/horizontal_end_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="20dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

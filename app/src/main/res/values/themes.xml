@@ -1,6 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.Batech_1" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <item name="fontFamily">@font/bubblegum_sans</item>
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -19,5 +21,7 @@
         <item name="colorControlHighlight">@color/colorAccent</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" >
+        <item name="fontFamily">@font/bubblegum_sans</item>
+    </style>
 </resources>
