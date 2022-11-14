@@ -40,7 +40,6 @@ public class ClientDashBoard extends AppCompatActivity implements NavigationView
         img_profile = findViewById(R.id.btn_person);
         client_navigation_view = findViewById(R.id.client_navigation_view);
         drawerLayout = findViewById(R.id.client_drawerLayout);
-        tv_toolbar.setText("Welcome to Batech");
 
         Fragment_Home home = new Fragment_Home();
         FragmentManager home_Transaction = getSupportFragmentManager();
@@ -82,6 +81,7 @@ public class ClientDashBoard extends AppCompatActivity implements NavigationView
                 home_Transaction.beginTransaction().replace(R.id.client_framelayout,home).addToBackStack("Home").commit();
 
                 drawerLayout.closeDrawers();
+                tv_toolbar.setText("Home");
                 break;
 
             case R.id.nav_aboutus:
@@ -90,6 +90,7 @@ public class ClientDashBoard extends AppCompatActivity implements NavigationView
                 about_us_transaction.beginTransaction().replace(R.id.client_framelayout,about_us).addToBackStack("about").commit();
 
                 drawerLayout.closeDrawers();
+                tv_toolbar.setText("About Us");
                 break;
 
             case R.id.nav_machines:
@@ -98,6 +99,7 @@ public class ClientDashBoard extends AppCompatActivity implements NavigationView
                 machine_transaction.beginTransaction().replace(R.id.client_framelayout,machines).addToBackStack("machine").commit();
 
                 drawerLayout.closeDrawers();
+                tv_toolbar.setText("Machines");
                 break;
             case R.id.nav_forms:
                 Client_Forms client_forms = new Client_Forms();
@@ -105,6 +107,7 @@ public class ClientDashBoard extends AppCompatActivity implements NavigationView
                 client_forms_transaction.beginTransaction().replace(R.id.client_framelayout,client_forms).addToBackStack("form").commit();
 
                 drawerLayout.closeDrawers();
+                tv_toolbar.setText("Forms");
                 break;
         }
 

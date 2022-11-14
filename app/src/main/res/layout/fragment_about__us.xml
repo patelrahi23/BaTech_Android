@@ -1,15 +1,330 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Dashboards.ClientDashboards.Fragments.About_Us">
-
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        android:textColor="@color/black"/>
+        android:id="@+id/tv_about_us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="About Our Company"
+        android:textSize="30sp"
+        android:textColor="@color/md_blue_900"
+        app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+        app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+        app:layout_constraintTop_toTopOf="@id/horizontal_start_guideline"
+        />
 
-</FrameLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:cardElevation="15dp"
+        app:cardMaxElevation="20dp"
+        app:cardCornerRadius="15dp"
+        android:backgroundTint="@color/md_grey_400"
+        app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+        app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+        app:layout_constraintTop_toBottomOf="@id/tv_about_us"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/seekbar_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="An extensive experience of over 20 years in the industry"
+                android:textColor="@color/md_blue_900"
+                android:textSize="25sp"
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:baselineAligned="false">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        app:cardElevation="15dp"
+                        app:cardMaxElevation="20dp"
+                        app:cardCornerRadius="15dp"
+                        android:backgroundTint="@color/md_blue_grey_100">
+
+                        <me.tankery.lib.circularseekbar.CircularSeekBar
+                            android:id="@+id/seekbar_manufacturing"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_gravity="center"
+                            app:cs_circle_style = "square"
+                            app:cs_progress = "80"
+                            app:cs_max = "100"
+                            app:cs_negative_enabled = "false"
+                            app:cs_move_outside_circle = "true"
+                            app:cs_maintain_equal_circle = "true"
+                            app:cs_use_custom_radii = "false"
+                            app:cs_lock_enabled = "true"
+                            app:cs_circle_x_radius = "0dp"
+                            app:cs_circle_y_radius = "0dp"
+                            app:cs_circle_stroke_width = "10dp"
+                            app:cs_disable_pointer = "true"
+                            app:cs_pointer_stroke_width = "15dp"
+                            app:cs_circle_fill = "@color/transparent"
+                            app:cs_circle_color = "@color/md_blue_grey_700"
+                            app:cs_circle_progress_color = "#42A5A8"
+                            app:cs_pointer_color = "#42A5A8"
+                            app:cs_pointer_alpha_ontouch = "5"
+                            app:cs_pointer_angle = "0"
+                            app:cs_disable_progress_glow = "true"
+                            app:cs_hide_progress_when_empty = "true"/>
+
+                    </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Manufacturing  80%"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:textSize="20sp"
+                        android:textColor="@color/md_blue_900"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_weight="1">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        app:cardElevation="15dp"
+                        app:cardMaxElevation="20dp"
+                        app:cardCornerRadius="15dp"
+                        android:backgroundTint="@color/md_blue_grey_100">
+
+                        <me.tankery.lib.circularseekbar.CircularSeekBar
+                            android:id="@+id/seekbar_quality"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_gravity="center"
+                            app:cs_circle_style = "square"
+                            app:cs_progress = "90"
+                            app:cs_max = "100"
+                            app:cs_negative_enabled = "false"
+                            app:cs_move_outside_circle = "true"
+                            app:cs_maintain_equal_circle = "true"
+                            app:cs_use_custom_radii = "false"
+                            app:cs_lock_enabled = "true"
+                            app:cs_circle_x_radius = "0dp"
+                            app:cs_circle_y_radius = "0dp"
+                            app:cs_circle_stroke_width = "10dp"
+                            app:cs_disable_pointer = "true"
+                            app:cs_pointer_stroke_width = "15dp"
+                            app:cs_circle_fill = "@color/transparent"
+                            app:cs_circle_color = "@color/md_blue_grey_700"
+                            app:cs_circle_progress_color = "#42A5A8"
+                            app:cs_pointer_color = "#42A5A8"
+                            app:cs_pointer_alpha_ontouch = "5"
+                            app:cs_pointer_angle = "0"
+                            app:cs_disable_progress_glow = "true"
+                            app:cs_hide_progress_when_empty = "true"/>
+
+                    </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:text="Quality 90%"
+                        android:gravity="center"
+
+                        android:layout_marginStart="10dp"
+                        android:layout_gravity="center"
+                        android:textSize="20sp"
+                        android:textColor="@color/md_blue_900"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:baselineAligned="false">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_weight="1">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_margin="10dp"
+                        app:cardElevation="15dp"
+                        app:cardMaxElevation="20dp"
+                        app:cardCornerRadius="15dp"
+                        android:backgroundTint="@color/md_blue_grey_100">
+
+                        <me.tankery.lib.circularseekbar.CircularSeekBar
+                            android:id="@+id/seekbar_experience"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_gravity="center"
+                            app:cs_circle_style = "square"
+                            app:cs_progress = "85"
+                            app:cs_max = "100"
+                            app:cs_negative_enabled = "false"
+                            app:cs_move_outside_circle = "true"
+                            app:cs_maintain_equal_circle = "true"
+                            app:cs_use_custom_radii = "false"
+                            app:cs_lock_enabled = "true"
+                            app:cs_circle_x_radius = "0dp"
+                            app:cs_circle_y_radius = "0dp"
+                            app:cs_circle_stroke_width = "10dp"
+                            app:cs_disable_pointer = "true"
+                            app:cs_pointer_stroke_width = "15dp"
+                            app:cs_circle_fill = "@color/transparent"
+                            app:cs_circle_color = "@color/md_blue_grey_700"
+                            app:cs_circle_progress_color = "#42A5A8"
+                            app:cs_pointer_color = "#42A5A8"
+                            app:cs_pointer_alpha_ontouch = "5"
+                            app:cs_pointer_angle = "0"
+                            app:cs_disable_progress_glow = "true"
+                            app:cs_hide_progress_when_empty = "true"/>
+
+                    </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:text="Experience  85%"
+                        android:gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:layout_gravity="center"
+                        android:textSize="20sp"
+                        android:textColor="@color/md_blue_900"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:cardElevation="15dp"
+        app:cardMaxElevation="20dp"
+        app:cardCornerRadius="15dp"
+        android:backgroundTint="@color/md_grey_400"
+        app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+        app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+        app:layout_constraintTop_toBottomOf="@id/card_1"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/pofile_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Messages From: Mr. Savinder Singh Batra (Founder)"
+                    android:textColor="@color/md_blue_900"
+                    android:textSize="25sp"
+                    android:padding="5dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"/>
+                <ImageView
+                    android:id="@+id/pofile_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:src="@mipmap/satvinder"
+                    android:layout_gravity="center"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/pofile_desc_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="My vision for India is its unparalleled growth in the field of Automation. I believe our country has a lot of potential for success in this industry, however, the refusal of several founders in this field to discuss their automation ideas out loud has resulted in the stagnation of our growth."
+                    android:textColor="@color/md_blue_900"
+                    android:textSize="25sp"
+                    android:padding="5dp"
+                    android:layout_gravity="center_horizontal|center"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_start_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_end_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal_start_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal_end_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="20dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
