@@ -3,7 +3,6 @@ package com.example.batech_1.Login;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,11 +15,9 @@ import com.example.batech_1.Dashboards.MainDashboard;
 import com.example.batech_1.ModelClasses.UserClass;
 import com.example.batech_1.R;
 import com.example.batech_1.SharedPrefHelper;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Objects;
@@ -37,7 +34,6 @@ public class Login extends AppCompatActivity {
     UserClass user = null;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,39 +48,38 @@ public class Login extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
+        user = new UserClass();
 
-        btn_fgt_pass.setOnClickListener(view->{
-            // forgot passowrd activity
+        btn_fgt_pass.setOnClickListener(view -> {
 
 
         });
 
-        btn_login.setOnClickListener(view->{
+        btn_login.setOnClickListener(view -> {
             //login the user
 
-            if(CheckFields(et_email) && CheckFields(et_pass)){
+            if (CheckFields(et_email) && CheckFields(et_pass)) {
                 email = Objects.requireNonNull(et_email.getEditText()).getText().toString();
                 pass = Objects.requireNonNull(et_pass.getEditText()).getText().toString();
-                user = new UserClass();
+
                 user.setEmail(email);
                 user.setPass(pass);
-                if(cb_remember_me.isChecked()){
-                    SharedPrefHelper.setSharedPrefrences(this,"EmailPassword",user);
 
+                if (cb_remember_me.isChecked()) {
+                    SharedPrefHelper.setSharedPrefrences(this, "EmailPassword", user);
                 }
 
-                firebaseAuth.signInWithEmailAndPassword(email,pass).addOnSuccessListener(authResult -> {
-                    CheckUser(Objects.requireNonNull(authResult.getUser()).getUid());
-                }).addOnFailureListener(e -> {
-                    Toast.makeText(this, "Please Try Again.", Toast.LENGTH_LONG).show();
-                });
+                firebaseAuth.signInWithEmailAndPassword(email, pass)
+                        .addOnSuccessListener(authResult ->
+                                CheckUser(Objects.requireNonNull(authResult.getUser()).getUid()))
+                        .addOnFailureListener(e ->
+                                Toast.makeText(this, "Please Try Again.", Toast.LENGTH_LONG).show());
             }
 
 
         });
 
         btn_create_acc.setOnClickListener(view -> {
-
             // procedure of creating account for user
             Intent intent = new Intent(Login.this, Signup1.class);
             startActivity(intent);
@@ -94,76 +89,68 @@ public class Login extends AppCompatActivity {
     }
 
     private void CheckUser(String uid) {
+        user = new UserClass();
+        user.setuid(uid);
+        SharedPrefHelper.setSharedPrefrences(this, "FirebaseUID", user.getuid());
         DocumentReference dref = firestore.collection("Users").document(uid);
         dref.get().addOnSuccessListener(documentSnapshot -> {
-            Log.d("Checking UID", "On Success "+documentSnapshot.getData());
-            if(Objects.equals(documentSnapshot.getString("Admin"), "1")){
-                startActivity(new Intent(Login.this,MainDashboard.class));
+            Log.d("Checking UID", "On Success " + documentSnapshot.getData());
+            if (Objects.equals(documentSnapshot.getString("Admin"), "1")) {
+                startActivity(new Intent(Login.this, MainDashboard.class));
                 finish();
-            }else if(Objects.equals(documentSnapshot.getString("Admin"), "0")){
+            } else if (Objects.equals(documentSnapshot.getString("Admin"), "0")) {
                 startActivity(new Intent(Login.this, ClientDashBoard.class));
                 finish();
             }
         }).addOnFailureListener(e -> {
             Toast.makeText(this, "Try Again later", Toast.LENGTH_SHORT).show();
-            Log.e("Error AccessLevel",""+ e.getMessage());
+            Log.e("Error AccessLevel", "" + e.getMessage());
         });
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
         checkSetEmailPass();
-
-        if(firebaseAuth.getCurrentUser() == null){
-            checkSetEmailPass();
-        }
-        else{
-            CheckUser(firebaseAuth.getCurrentUser().getUid());
-        }
+        checkFirebaseUser();
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-
         checkSetEmailPass();
-        if(firebaseAuth.getCurrentUser() == null){
+        checkFirebaseUser();
+    }
+
+    private void checkFirebaseUser() {
+        if (firebaseAuth.getCurrentUser() == null) {
             checkSetEmailPass();
-        }
-        else{
+        } else {
             CheckUser(firebaseAuth.getCurrentUser().getUid());
+            UserClass usc = new UserClass();
+            usc.setuid(firebaseAuth.getCurrentUser().getUid());
+            SharedPrefHelper.setSharedPrefrences(this, "FireabaseUID", usc);
         }
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if(firebaseAuth.getCurrentUser() == null){
-            checkSetEmailPass();
-        }
-        else{
-            CheckUser(firebaseAuth.getCurrentUser().getUid());
-        }
+        checkFirebaseUser();
         checkSetEmailPass();
     }
 
-    public void checkSetEmailPass(){
+    public void checkSetEmailPass() {
         View view = getWindow().getDecorView();
-        int UIView = View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY| View.SYSTEM_UI_FLAG_HIDE_NAVIGATION| View.SYSTEM_UI_FLAG_FULLSCREEN;
+        int UIView = View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN;
         view.setSystemUiVisibility(UIView);
-
         user = (UserClass) SharedPrefHelper.getSharedPrefrences(this, "EmailPassword");
-//        email = user.getEmail();
-//        pass = user.getPass();
-        if(user == null){
+        if (user == null) {
             Toast.makeText(this, "Please Enter Details to Login", Toast.LENGTH_LONG).show();
-        }
-        else if(!user.getEmail().isEmpty() && !user.getPass().isEmpty()) {
+        } else if (!user.getEmail().isEmpty() && !user.getPass().isEmpty()) {
             email = user.getEmail();
             pass = user.getPass();
-
             Objects.requireNonNull(et_email.getEditText()).setText(email);
             Objects.requireNonNull(et_pass.getEditText()).setText(pass);
         }

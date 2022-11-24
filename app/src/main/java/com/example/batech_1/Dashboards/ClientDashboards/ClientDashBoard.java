@@ -78,7 +78,7 @@ public class ClientDashBoard extends AppCompatActivity implements NavigationView
             case R.id.nav_home:
                 Fragment_Home home = new Fragment_Home();
                 FragmentManager home_Transaction = getSupportFragmentManager();
-                home_Transaction.beginTransaction().replace(R.id.client_framelayout,home).addToBackStack("Home").commit();
+                home_Transaction.beginTransaction().replace(R.id.client_framelayout,home).commit();
 
                 drawerLayout.closeDrawers();
                 tv_toolbar.setText("Home");
@@ -87,7 +87,7 @@ public class ClientDashBoard extends AppCompatActivity implements NavigationView
             case R.id.nav_aboutus:
                 About_Us about_us = new About_Us();
                 FragmentManager about_us_transaction = getSupportFragmentManager();
-                about_us_transaction.beginTransaction().replace(R.id.client_framelayout,about_us).addToBackStack("about").commit();
+                about_us_transaction.beginTransaction().replace(R.id.client_framelayout,about_us).commit();
 
                 drawerLayout.closeDrawers();
                 tv_toolbar.setText("About Us");
@@ -96,7 +96,7 @@ public class ClientDashBoard extends AppCompatActivity implements NavigationView
             case R.id.nav_machines:
                 Machines machines = new Machines();
                 FragmentManager machine_transaction = getSupportFragmentManager();
-                machine_transaction.beginTransaction().replace(R.id.client_framelayout,machines).addToBackStack("machine").commit();
+                machine_transaction.beginTransaction().replace(R.id.client_framelayout,machines).commit();
 
                 drawerLayout.closeDrawers();
                 tv_toolbar.setText("Machines");
@@ -104,7 +104,7 @@ public class ClientDashBoard extends AppCompatActivity implements NavigationView
             case R.id.nav_forms:
                 Client_Forms client_forms = new Client_Forms();
                 FragmentManager client_forms_transaction = getSupportFragmentManager();
-                client_forms_transaction.beginTransaction().replace(R.id.client_framelayout,client_forms).addToBackStack("form").commit();
+                client_forms_transaction.beginTransaction().replace(R.id.client_framelayout,client_forms).commit();
 
                 drawerLayout.closeDrawers();
                 tv_toolbar.setText("Forms");

@@ -494,7 +494,7 @@
        </androidx.cardview.widget.CardView>
 
        <Button
-           android:id="@+id/btn_submit"
+           android:id="@+id/btn_submittt"
            android:layout_width="0dp"
            android:layout_height="wrap_content"
            android:background="@drawable/custom_button"

@@ -76,7 +76,7 @@
             android:itemBackground="@color/md_white_off"
             android:padding="9dp"
             app:cursorColor="@color/black"
-            app:itemCount="5"
+            app:itemCount="6"
             app:itemRadius="20dp"
             app:layout_constraintBottom_toTopOf="@+id/btn_verify"
             app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"

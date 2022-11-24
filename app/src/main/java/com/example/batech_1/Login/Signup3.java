@@ -1,7 +1,10 @@
 package com.example.batech_1.Login;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.arch.core.executor.TaskExecutor;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -11,15 +14,21 @@ import com.example.batech_1.LoginActivity;
 import com.example.batech_1.ModelClasses.UserClass;
 import com.example.batech_1.R;
 import com.example.batech_1.SharedPrefHelper;
+import com.google.android.gms.tasks.TaskExecutors;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthOptions;
+import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.hbb20.CountryCodePicker;
 
 import java.util.HashMap;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 public class Signup3 extends AppCompatActivity {
     Button btn_verify, btn_login;
@@ -56,7 +65,7 @@ public class Signup3 extends AppCompatActivity {
 
         btn_verify.setOnClickListener(view -> {
 
-            phone = ccp.getSelectedCountryCode() + Objects.requireNonNull(et_phone.getEditText()).getText().toString();
+            phone = "+" + ccp.getSelectedCountryCode() + Objects.requireNonNull(et_phone.getEditText()).getText().toString();
             designation = Objects.requireNonNull(et_designation.getEditText()).getText().toString();
 
             if (et_phone.getEditText().getText().length() < 10 && et_phone.getEditText().getText().length() == 0) {
@@ -76,6 +85,7 @@ public class Signup3 extends AppCompatActivity {
                 user = (UserClass) SharedPrefHelper.getSharedPrefrences(this, "GenderDob");
                 gender = user.getGender();
                 dateOfBirth = user.getDOB();
+
 
                 firebaseAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener(authResult -> {
                     FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -103,4 +113,6 @@ public class Signup3 extends AppCompatActivity {
 
         });
     }
+
+
 }

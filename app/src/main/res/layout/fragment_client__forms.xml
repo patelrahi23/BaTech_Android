@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tab_self_inspection"
-            android:text="Self Inspection Checklist"/>
+            android:text="Self Inspection Checklist Report"/>
 
     </com.google.android.material.tabs.TabLayout>
 
