@@ -39,7 +39,8 @@ public class Signup3 extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseFirestore firestore;
     String email = null, password = null, fullName = null, gender = null, dateOfBirth = null;
-
+    
+    String[] Admins = new String[]{"p.rahifb@gmail.com","ayushkapoor@gmail.com","zaiydmala@gmail.com"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,61 +58,63 @@ public class Signup3 extends AppCompatActivity {
 
         user = new UserClass();
 
-
         btn_login.setOnClickListener(view->{
             startActivity(new Intent(Signup3.this, Login.class));
             finish();
         });
 
-        btn_verify.setOnClickListener(view -> {
+        btn_verify.setOnClickListener(view -> CreateUserWithEmailPass());
+    }
 
-            phone = "+" + ccp.getSelectedCountryCode() + Objects.requireNonNull(et_phone.getEditText()).getText().toString();
-            designation = Objects.requireNonNull(et_designation.getEditText()).getText().toString();
+    private void CreateUserWithEmailPass() {
+        phone = "+" + ccp.getSelectedCountryCode() + Objects.requireNonNull(et_phone.getEditText()).getText().toString();
+        designation = Objects.requireNonNull(et_designation.getEditText()).getText().toString();
 
-            if (et_phone.getEditText().getText().length() < 10 && et_phone.getEditText().getText().length() == 0) {
-                et_phone.setError("Phone is Required inorder to Confirm");
+        if (et_phone.getEditText().getText().length() < 10 && et_phone.getEditText().getText().length() == 0) {
+            et_phone.setError("Phone is Required inorder to Confirm");
 
-            } else if (et_designation.getEditText().getText().toString().isEmpty()) {
-                et_designation.setError("Designation is required of an organisation");
-            } else {
-                user.setPh_number(phone);
-                user.setOrganisation(designation);
-                SharedPrefHelper.setSharedPrefrences(this, "PhoneDesignation", user);
+        } else if (et_designation.getEditText().getText().toString().isEmpty()) {
+            et_designation.setError("Designation is required of an organisation");
+        } else {
+            user.setPh_number(phone);
+            user.setOrganisation(designation);
+            SharedPrefHelper.setSharedPrefrences(this, "PhoneDesignation", user);
 
-                user = (UserClass) SharedPrefHelper.getSharedPrefrences(this, "NameEmailPassword");
-                email = user.getEmail();
-                password = user.getPass();
-                fullName = user.getFname();
-                user = (UserClass) SharedPrefHelper.getSharedPrefrences(this, "GenderDob");
-                gender = user.getGender();
-                dateOfBirth = user.getDOB();
+            user = (UserClass) SharedPrefHelper.getSharedPrefrences(this, "NameEmailPassword");
+            email = user.getEmail();
+            password = user.getPass();
+            fullName = user.getFname();
+            user = (UserClass) SharedPrefHelper.getSharedPrefrences(this, "GenderDob");
+            gender = user.getGender();
+            dateOfBirth = user.getDOB();
+        firebaseAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener(authResult -> {
+            FirebaseUser user = firebaseAuth.getCurrentUser();
+            DocumentReference dref = firestore.collection("Users").document(user != null ? user.getUid() : null);
+            HashMap<String, Object> userinfo = new HashMap<>();
+            userinfo.put("FullName", fullName);
+            userinfo.put("Email", email);
+            userinfo.put("Password", password);
+            userinfo.put("Gender", gender);
+            userinfo.put("Phone", phone);
+            userinfo.put("Date Of Birth", dateOfBirth);
+            userinfo.put("Designation", designation);
 
-
-                firebaseAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener(authResult -> {
-                    FirebaseUser user = firebaseAuth.getCurrentUser();
-                    DocumentReference dref = firestore.collection("Users").document(user != null ? user.getUid() : null);
-                    HashMap<String, Object> userinfo = new HashMap<>();
-                    userinfo.put("FullName", fullName);
-                    userinfo.put("Email", email);
-                    userinfo.put("Password", password);
-                    userinfo.put("Gender", gender);
-                    userinfo.put("Phone", phone);
-                    userinfo.put("Date Of Birth", dateOfBirth);
-                    userinfo.put("Designation", designation);
-                    userinfo.put("Client", "1");
-                    userinfo.put("Admin", "0");
-
-                    dref.set(userinfo);
-
-                    Toast.makeText(getApplicationContext(), "You are Signed Up! Please Continue to verify OTP.", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(Signup3.this, OTPVerify.class));
-                    finish();
-                }).addOnFailureListener(e -> Toast.makeText(getApplicationContext(), "Please Try Again In Some Time", Toast.LENGTH_LONG).show());
-
-
+            for (String emails : Admins) {
+                if (email.equals(emails)) {
+                    userinfo.put("Admin", "1");
+                } else {
+                    userinfo.put("Client", "0");
+                }
             }
+            dref.set(userinfo);
 
-        });
+            Toast.makeText(getApplicationContext(), "You are Signed Up! Please Continue to verify OTP.", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(Signup3.this, OTPVerify.class));
+            finish();
+        }).addOnFailureListener(e -> Toast.makeText(getApplicationContext(), "Please Try Again In Some Time", Toast.LENGTH_LONG).show());
+
+
+    }
     }
 
 

@@ -6,6 +6,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -45,7 +46,6 @@ public class ClientDashBoard extends AppCompatActivity implements NavigationView
         FragmentManager home_Transaction = getSupportFragmentManager();
         home_Transaction.beginTransaction().replace(R.id.client_framelayout,home).addToBackStack("Home").commit();
 
-
         navigationDrawer();
         img_back.setOnClickListener(view->{
             drawerLayout.openDrawer(GravityCompat.START);
@@ -58,20 +58,15 @@ public class ClientDashBoard extends AppCompatActivity implements NavigationView
         client_navigation_view.bringToFront();
         client_navigation_view.setNavigationItemSelectedListener(this);
         client_navigation_view.setCheckedItem(R.id.nav_home);
-//        Fragment_Home home = new Fragment_Home();
-//        FragmentManager home_Transaction = getSupportFragmentManager();
-//        home_Transaction.beginTransaction().replace(R.id.client_framelayout,home);
-//        home_Transaction.addToBackStack("Home_fragment");
-//        home_Transaction.commit();
         if(drawerLayout.isDrawerVisible(GravityCompat.START)){
             drawerLayout.closeDrawer(GravityCompat.START);
         }
         else{
             drawerLayout.openDrawer(GravityCompat.START);
         }
-
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -79,7 +74,6 @@ public class ClientDashBoard extends AppCompatActivity implements NavigationView
                 Fragment_Home home = new Fragment_Home();
                 FragmentManager home_Transaction = getSupportFragmentManager();
                 home_Transaction.beginTransaction().replace(R.id.client_framelayout,home).commit();
-
                 drawerLayout.closeDrawers();
                 tv_toolbar.setText("Home");
                 break;
@@ -88,7 +82,6 @@ public class ClientDashBoard extends AppCompatActivity implements NavigationView
                 About_Us about_us = new About_Us();
                 FragmentManager about_us_transaction = getSupportFragmentManager();
                 about_us_transaction.beginTransaction().replace(R.id.client_framelayout,about_us).commit();
-
                 drawerLayout.closeDrawers();
                 tv_toolbar.setText("About Us");
                 break;
@@ -97,7 +90,6 @@ public class ClientDashBoard extends AppCompatActivity implements NavigationView
                 Machines machines = new Machines();
                 FragmentManager machine_transaction = getSupportFragmentManager();
                 machine_transaction.beginTransaction().replace(R.id.client_framelayout,machines).commit();
-
                 drawerLayout.closeDrawers();
                 tv_toolbar.setText("Machines");
                 break;
@@ -105,12 +97,10 @@ public class ClientDashBoard extends AppCompatActivity implements NavigationView
                 Client_Forms client_forms = new Client_Forms();
                 FragmentManager client_forms_transaction = getSupportFragmentManager();
                 client_forms_transaction.beginTransaction().replace(R.id.client_framelayout,client_forms).commit();
-
                 drawerLayout.closeDrawers();
                 tv_toolbar.setText("Forms");
                 break;
         }
-
         return true;
     }
 

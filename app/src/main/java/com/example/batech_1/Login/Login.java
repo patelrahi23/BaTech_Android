@@ -61,7 +61,7 @@ public class Login extends AppCompatActivity {
             if (CheckFields(et_email) && CheckFields(et_pass)) {
                 email = Objects.requireNonNull(et_email.getEditText()).getText().toString();
                 pass = Objects.requireNonNull(et_pass.getEditText()).getText().toString();
-
+                user = new UserClass();
                 user.setEmail(email);
                 user.setPass(pass);
 
@@ -90,6 +90,7 @@ public class Login extends AppCompatActivity {
 
     private void CheckUser(String uid) {
         user = new UserClass();
+        Log.d("UID", "CheckUser: uid = "+uid.toString());
         user.setuid(uid);
         SharedPrefHelper.setSharedPrefrences(this, "FirebaseUID", user.getuid());
         DocumentReference dref = firestore.collection("Users").document(uid);
@@ -98,7 +99,7 @@ public class Login extends AppCompatActivity {
             if (Objects.equals(documentSnapshot.getString("Admin"), "1")) {
                 startActivity(new Intent(Login.this, MainDashboard.class));
                 finish();
-            } else if (Objects.equals(documentSnapshot.getString("Admin"), "0")) {
+            } else if (Objects.equals(documentSnapshot.getString("Admin"),  "0")) {
                 startActivity(new Intent(Login.this, ClientDashBoard.class));
                 finish();
             }
@@ -112,7 +113,7 @@ public class Login extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         checkSetEmailPass();
-        checkFirebaseUser();
+
     }
 
     @Override
@@ -120,6 +121,13 @@ public class Login extends AppCompatActivity {
         super.onRestart();
         checkSetEmailPass();
         checkFirebaseUser();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        checkFirebaseUser();
+        checkSetEmailPass();
     }
 
     private void checkFirebaseUser() {
@@ -132,13 +140,6 @@ public class Login extends AppCompatActivity {
             SharedPrefHelper.setSharedPrefrences(this, "FireabaseUID", usc);
         }
 
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        checkFirebaseUser();
-        checkSetEmailPass();
     }
 
     public void checkSetEmailPass() {

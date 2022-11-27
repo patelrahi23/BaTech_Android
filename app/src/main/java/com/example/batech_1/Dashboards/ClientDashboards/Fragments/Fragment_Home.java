@@ -47,12 +47,8 @@ public class Fragment_Home extends Fragment {
         btn_print = view.findViewById(R.id.btn_print);
         btn_laser_print = view.findViewById(R.id.btn_laser_print);
 
-        btn_screen_print.setOnClickListener(v->{
-            homeBrowser();
-        });
-        btn_pad_print.setOnClickListener(v->{
-            homeBrowser();
-        });
+        btn_screen_print.setOnClickListener(v-> homeBrowser());
+        btn_pad_print.setOnClickListener(v-> homeBrowser());
 
         btn_contact_us.setOnClickListener(v->{
             Intent i = new Intent(Intent.ACTION_VIEW);
@@ -60,13 +56,9 @@ public class Fragment_Home extends Fragment {
             requireActivity().startActivity(i);
         });
 
-        btn_print.setOnClickListener(v->{
-            homeBrowser();
-        });
+        btn_print.setOnClickListener(v-> homeBrowser());
 
-        btn_laser_print.setOnClickListener(v->{
-            homeBrowser();
-        });
+        btn_laser_print.setOnClickListener(v-> homeBrowser());
 
     }
 
