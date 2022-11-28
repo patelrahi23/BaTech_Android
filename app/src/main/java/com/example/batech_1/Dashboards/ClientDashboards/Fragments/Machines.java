@@ -19,13 +19,19 @@ import android.widget.Toast;
 import com.example.batech_1.Adapters.MachineAdapter;
 import com.example.batech_1.ModelClasses.MachineModelClass;
 import com.example.batech_1.R;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Objects;
 
 public class Machines extends Fragment {
@@ -35,9 +41,9 @@ public class Machines extends Fragment {
     MachineAdapter machineAdapter;
     FirebaseFirestore firestore;
     FirebaseAuth auth;
-    FloatingActionButton admin_fab, client_fab;
+    FloatingActionButton admin_fab;
     String uid = null, user = null, Product_name= null, product_desc= null, product_model = null;
-    Animation card_animation_fade_in,recyc_anim;
+    Animation card_animation_fade_in;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,38 +64,54 @@ public class Machines extends Fragment {
 
         mapingViews(view);
 
-        machineModelClasses = new ArrayList<>();
         auth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
         uid = Objects.requireNonNull(auth.getCurrentUser()).getUid();
-        firestore.collection("Users").document(uid).get().addOnSuccessListener(documentSnapshot -> {
-            user = documentSnapshot.getString("Admin");
-            if(Objects.equals(user, "1")){
-                admin_fab.setVisibility(View.VISIBLE);
-                client_fab.setVisibility(View.INVISIBLE);
-            }else{
-                admin_fab.setVisibility(View.INVISIBLE);
-                client_fab.setVisibility(View.VISIBLE);
-            }
-        }).addOnFailureListener(e -> Toast.makeText(requireActivity(), "Cannot Add Machines, Something Went Wrong", Toast.LENGTH_SHORT).show());
 
+        showFabs();
         machineRecyclerView.setHasFixedSize(true);
         machineRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL,false));
         machineModelClasses = new ArrayList<>();
+
+        populateRVWithData();
+
 
        admin_fab.setOnClickListener(view1 -> {
            callBottomSheetAdmin(view1);
        });
 
-       client_fab.setOnClickListener(view12 -> {
-            callBottomSheetClient();
-       });
-    }
-
-    private void callBottomSheetClient() {
-
 
     }
+
+    private void populateRVWithData() {
+
+        firestore.collection("Machines").get().addOnSuccessListener(queryDocumentSnapshots -> {
+            for (QueryDocumentSnapshot snap : queryDocumentSnapshots) {
+                product_desc = Objects.requireNonNull(snap.get("Machine Description")).toString();
+                Product_name = Objects.requireNonNull(snap.get("Machine Name")).toString();
+                product_model = Objects.requireNonNull(snap.get("Machine Model")).toString();
+                machineModelClasses.add(new MachineModelClass(product_model,product_desc,Product_name));
+            }
+            machineAdapter = new MachineAdapter(machineModelClasses,requireActivity());
+            machineRecyclerView.setAdapter(machineAdapter);
+        });
+
+//
+    }
+
+    private void showFabs() {
+        firestore.collection("Users").document(uid).get().addOnSuccessListener(documentSnapshot -> {
+            user = documentSnapshot.getString("Admin");
+            if(Objects.equals(user, "1")){
+                admin_fab.setVisibility(View.VISIBLE);
+            }else{
+                admin_fab.setVisibility(View.INVISIBLE);
+            }
+        }).addOnFailureListener(e -> Toast.makeText(requireActivity(), "Cannot Add Machines, Something Went Wrong", Toast.LENGTH_SHORT).show());
+
+    }
+
+
 
     private void callBottomSheetAdmin(View view1) {
         card_animation_fade_in = AnimationUtils.loadAnimation(requireContext(),R.anim.fade);
@@ -110,8 +132,15 @@ public class Machines extends Fragment {
             product_model = Objects.requireNonNull(et_product_model.getEditText()).getText().toString();
             Product_name = Objects.requireNonNull(et_product_name.getEditText()).getText().toString();
             machineModelClasses.add(new MachineModelClass(product_model,product_desc,Product_name));
-            machineAdapter = new MachineAdapter(machineModelClasses, requireActivity());
-            machineRecyclerView.setAdapter(machineAdapter);
+
+            DocumentReference dref = firestore.collection("Machines").document();
+            HashMap<String, Object> userinfo = new HashMap<>();
+            userinfo.put("Machine Name",Product_name);
+            userinfo.put("Machine Model",product_model);
+            userinfo.put("Machine Description",product_desc);
+            dref.set(userinfo);
+            Toast.makeText(requireContext(), "You added Machine!.", Toast.LENGTH_LONG).show();
+
         });
 
         bottomSheetDialog.setContentView(view);
@@ -124,7 +153,7 @@ public class Machines extends Fragment {
     private void mapingViews(View view) {
         machineRecyclerView = view.findViewById(R.id.machine_recyclerview);
         admin_fab = view.findViewById(R.id.admin_fab);
-        client_fab = view.findViewById(R.id.client_fab);
+
 
     }
 }

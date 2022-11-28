@@ -5,6 +5,9 @@ public class MachineModelClass {
     String model_number,  Desc, name;
 
 
+    public MachineModelClass() {
+    }
+
     public String getName() {
         return name;
     }

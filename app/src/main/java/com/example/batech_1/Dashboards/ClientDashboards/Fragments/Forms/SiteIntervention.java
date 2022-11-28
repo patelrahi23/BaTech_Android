@@ -88,7 +88,6 @@ public class SiteIntervention extends Fragment {
 
         list = new ArrayList<>();
 
-        getNamePhoneEmailfireStore();
 
         calendarEventGetDate();
 
@@ -114,38 +113,29 @@ public class SiteIntervention extends Fragment {
           }
       });
 
-//      cb_print_problem.setOnClickListener(new View.OnClickListener() {
-//          @Override
-//          public void onClick(View view) {
-//              if(cb_print_problem.isChecked()){
-//                  cb_machine_complain.setChecked(false);
-//                  cb_machine_installation.setChecked(false);
-//                  nature_of_call_machine_prob = cb_print_problem.getText().toString();
-//              }
-//          }
-//      });
-//
-//        cb_machine_complain.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if(cb_machine_complain.isChecked()){
-//                    cb_print_problem.setChecked(false);
-//                    cb_machine_installation.setChecked(false);
-//                    nature_of_call_machine_prob = cb_machine_complain.getText().toString();
-//                }
-//            }
-//        });
-//
-//        cb_machine_installation.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if(cb_machine_installation.isChecked()){
-//                    cb_machine_complain.setChecked(false);
-//                    cb_print_problem.setChecked(false);
-//                    nature_of_call_machine_prob = cb_machine_installation.getText().toString();
-//                }
-//            }
-//        });
+      cb_print_problem.setOnClickListener(view16 -> {
+          if(cb_print_problem.isChecked()){
+              cb_machine_complain.setChecked(false);
+              cb_machine_installation.setChecked(false);
+              nature_of_call_machine_prob = cb_print_problem.getText().toString();
+          }
+      });
+
+        cb_machine_complain.setOnClickListener(view15 -> {
+            if(cb_machine_complain.isChecked()){
+                cb_print_problem.setChecked(false);
+                cb_machine_installation.setChecked(false);
+                nature_of_call_machine_prob = cb_machine_complain.getText().toString();
+            }
+        });
+
+        cb_machine_installation.setOnClickListener(view17 -> {
+            if(cb_machine_installation.isChecked()){
+                cb_machine_complain.setChecked(false);
+                cb_print_problem.setChecked(false);
+                nature_of_call_machine_prob = cb_machine_installation.getText().toString();
+            }
+        });
 
      btn_submit.setOnClickListener(view1 -> {
          if(CheckFields(et_form_fname) && CheckFields(et_form_action) && CheckFields(et_form_address) && CheckFields(et_form_email) && CheckFields(et_form_phone)
@@ -161,16 +151,11 @@ public class SiteIntervention extends Fragment {
     private void addFileToFirestore() {
         if(user !=null){
 
-            for (String str : machine_list_problem) {
-                if(nature_of_call_machine_prob.equals("")){
-                    nature_of_call_machine_prob = nature_of_call_machine_prob+str;
-                }else{
-                    StringBuilder sb = new StringBuilder();
-                    nature_of_call_machine_prob = sb.append(str).toString();
-                }
-            }
             Log.e("Nature:", "saasd "+nature_of_call_machine_prob);
             userCalss = new UserClass();
+            fname = Objects.requireNonNull(et_form_fname.getEditText()).getText().toString();
+            email = Objects.requireNonNull(et_form_email.getEditText()).getText().toString();
+            phone = Objects.requireNonNull(et_form_phone.getEditText()).getText().toString();
             address = Objects.requireNonNull(et_form_address.getEditText()).getText().toString();
             product_name = Objects.requireNonNull(et_form_product_name.getEditText()).getText().toString();
             product_model = Objects.requireNonNull(et_form_product_model.getEditText()).getText().toString();
@@ -209,12 +194,10 @@ public class SiteIntervention extends Fragment {
             userinfo.put("Complaint Number",userCalss.getComplain_number());
             userinfo.put("Rating",userCalss.getRating());
 
-            CollectionReference cref = firestore.collection("Users/"+uid+"/Site Intervention");
+            DocumentReference cref = firestore.collection("Site Intervention Report").document();
 
-            cref.add(userinfo).addOnSuccessListener(documentReference -> {
+            cref.set(userinfo).addOnSuccessListener(documentReference -> {
                 Toast.makeText(requireContext(),"Success For Filing a Complain",Toast.LENGTH_LONG).show();
-                String id = documentReference.getId();
-                Log.d("Document Id", "onViewCreated: "+id);
             }).addOnFailureListener(e -> Toast.makeText(requireContext(),"Failed Due to:"+e.getMessage(),Toast.LENGTH_LONG).show());
         }else{
             Toast.makeText(requireContext(),"User Not Found",Toast.LENGTH_LONG).show();
@@ -234,29 +217,7 @@ public class SiteIntervention extends Fragment {
             list.add(cb_machine_installation.getText().toString());
         }
         machine_list_problem = list.toArray(new String[0]);
-    }
 
-    private void getNamePhoneEmailfireStore() {
-        DocumentReference dref = firestore.collection("Users").document(uid);
-        dref.addSnapshotListener((value, error) -> {
-            assert value != null;
-            fname = value.getString("FullName");
-            email = value.getString("Email");
-            phone = value.getString("Phone");
-//                complain_number =  value.getLong("Complain Number").intValue();
-            Objects.requireNonNull(et_form_email.getEditText()).setText(email);
-            Objects.requireNonNull(et_form_phone.getEditText()).setText(phone);
-            Objects.requireNonNull(et_form_fname.getEditText()).setText(fname);
-//                Random random = new Random();
-//                int complaint_number1 = random.nextInt(1000-1)+1;
-//
-//                if(complaint_number1 == complain_number){
-//                    tv_complaint_no.setText(complain_number);
-//                }else{
-//                    tv_complaint_no.setText(String.valueOf(complaint_number1));
-//                }
-
-        });
     }
 
     private void setDateAndComplaintNo() {

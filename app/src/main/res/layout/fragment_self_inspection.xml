@@ -1,46 +1,779 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Dashboards.ClientDashboards.Fragments.Forms.SelfInspection">
 
-  <androidx.constraintlayout.widget.ConstraintLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/lin1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+            app:layout_constraintTop_toTopOf="@id/horizontal_start_guideline">
+
+            <TextView
+                android:id="@+id/tv_complaintdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Date of Complain"
+                android:textColor="@color/md_blue_900"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_complaint_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="MM/DD/YYYY"
+                android:padding="5dp"
+                android:textColor="@color/md_blue_900"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_no1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/md_grey_400"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="15dp"
+            app:cardMaxElevation="20dp"
+            app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/lin1">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@color/transparent">
+
+                <LinearLayout
+                    android:id="@+id/lin3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/et_form_fname"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Full Name"
+                        android:textColorHint="@color/md_blue_900"
+                        app:boxStrokeColor="@color/md_blue_900"
+                        app:boxStrokeWidthFocused="2dp"
+                        app:startIconDrawable="@drawable/fullname_icon"
+                        app:startIconTint="@color/md_blue_900">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/bubblegum_sans"
+                            android:inputType="text"
+                            android:textColor="@color/md_blue_900"></com.google.android.material.textfield.TextInputEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/et_form_product_model"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="Product Model"
+                        android:textColorHint="@color/md_blue_900"
+                        app:boxStrokeColor="@color/md_blue_900"
+                        app:boxStrokeWidthFocused="2dp"
+                        app:startIconDrawable="@drawable/ic_product_model"
+                        app:startIconTint="@color/md_blue_900">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/bubblegum_sans"
+                            android:inputType="textEmailAddress"
+                            android:textColor="@color/md_blue_900"></com.google.android.material.textfield.TextInputEditText>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_no2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/md_grey_400"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="15dp"
+            app:cardMaxElevation="20dp"
+            app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/card_no1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/custom_button"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tv_forms_machine_survey"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Steps Taken for Machine Survey:"
+                    android:textColor="@color/md_blue_900"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/cb_macnufacturing_test"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/md_blue_900"
+                    android:text="Manufacturing Test"
+                    android:textColor="@color/md_blue_900" />
+
+                <CheckBox
+                    android:id="@+id/cb_machine_testing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/md_blue_900"
+                    android:text="Machine Testing"
+                    android:textColor="@color/md_blue_900" />
+
+                <CheckBox
+                    android:id="@+id/cb_finishing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/md_blue_900"
+                    android:text="Finishing"
+                    android:textColor="@color/md_blue_900" />
+
+                <CheckBox
+                    android:id="@+id/cb_accessories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/md_blue_900"
+                    android:text="Accessories"
+                    android:textColor="@color/md_blue_900" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_no3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/md_grey_400"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="15dp"
+            app:cardMaxElevation="20dp"
+            app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/card_no2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/custom_button"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tv_manufacture_test"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Manufacturing Testing"
+                    android:textColor="@color/md_blue_900"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/cb_bolt_lossening"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/md_blue_900"
+                    android:text="Bolt Loosening Check"
+                    android:textColor="@color/md_blue_900" />
+
+                <CheckBox
+                    android:id="@+id/cb_wire_loose_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/md_blue_900"
+                    android:text="Wire Loosening Check"
+                    android:textColor="@color/md_blue_900" />
+
+                <CheckBox
+                    android:id="@+id/cb_fuse_fitting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/md_blue_900"
+                    android:text="Fuse fitting Check"
+                    android:textColor="@color/md_blue_900" />
+
+                <CheckBox
+                    android:id="@+id/cb_wiring_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/md_blue_900"
+                    android:text="Wiring Thimbal Check"
+                    android:textColor="@color/md_blue_900" />
+
+                <CheckBox
+                    android:id="@+id/cb_stopper_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/md_blue_900"
+                    android:text="Stopper Adjustment Check"
+                    android:textColor="@color/md_blue_900" />
+
+                <CheckBox
+                    android:id="@+id/cb_head_rod_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/md_blue_900"
+                    android:text="Head Rod Locking Screw Check"
+                    android:textColor="@color/md_blue_900" />
+
+                <CheckBox
+                    android:id="@+id/cb_body_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/md_blue_900"
+                    android:text="Body Welding Check"
+                    android:textColor="@color/md_blue_900" />
+
+                <CheckBox
+                    android:id="@+id/cb_bearing_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/md_blue_900"
+                    android:text="608 No. Bearing Fitting Check"
+                    android:textColor="@color/md_blue_900" />
+
+                <CheckBox
+                    android:id="@+id/cb_pipe_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/md_blue_900"
+                    android:text="Pneumatic Pipe Fitting Foldage / Leakage"
+                    android:textColor="@color/md_blue_900" />
+
+                <CheckBox
+                    android:id="@+id/cb_sensor_fit_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/md_blue_900"
+                    android:text="Sensor Fitting / Adjustment"
+                    android:textColor="@color/md_blue_900" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_no4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/md_grey_400"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="15dp"
+            app:cardMaxElevation="20dp"
+            app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/card_no3">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/custom_button"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tv_machine_test"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Machine Testing"
+                    android:textColor="@color/md_blue_900"
+                    android:textSize="20sp" />
+
+                <CheckBox
+                    android:id="@+id/cb_cup_movement_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/md_blue_900"
+                    android:padding="10dp"
+                    android:text="Cup Movement check (2.5mm less than both side)"
+                    android:textColor="@color/md_blue_900" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Drive Type"
+                        android:textColor="@color/md_blue_900"
+                        android:textSize="25sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <CheckBox
+                            android:id="@+id/cb_AC"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/md_blue_900"
+                            android:text="AC"
+                            android:textColor="@color/md_blue_900" />
+
+                        <CheckBox
+                            android:id="@+id/cb_DC"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/md_blue_900"
+                            android:text="DC"
+                            android:layout_marginStart="10dp"
+                            android:textColor="@color/md_blue_900" />
+
+                        <CheckBox
+                            android:id="@+id/cb_pneumatic"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/md_blue_900"
+                            android:text="Pneumatic"
+                            android:layout_marginStart="10dp"
+                            android:textColor="@color/md_blue_900" />
+
+                    </LinearLayout>
 
 
+                </LinearLayout>
+
+              <CheckBox
+                  android:id="@+id/cb_drive_check"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:buttonTint="@color/md_blue_900"
+                  android:padding="10dp"
+                  android:text="Drive Check-OK Tested"
+                  android:textColor="@color/md_blue_900" />
+
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stroke Downward"
+                    android:textColor="@color/md_blue_900"
+                    android:textSize="25sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                  <CheckBox
+                      android:id="@+id/cb_30mm"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:buttonTint="@color/md_blue_900"
+                      android:text="30 mm"
+                      android:layout_weight="1"
+                      android:textColor="@color/md_blue_900" />
+
+                  <CheckBox
+                      android:id="@+id/cb_60mm"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:buttonTint="@color/md_blue_900"
+                      android:text="60 mm"
+                      android:layout_weight="1"
+                      android:layout_marginStart="10dp"
+                      android:textColor="@color/md_blue_900" />
+
+                  <CheckBox
+                      android:id="@+id/cb_80mm"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:buttonTint="@color/md_blue_900"
+                      android:text="80 mm"
+                      android:layout_weight="1"
+                      android:layout_marginStart="10dp"
+                      android:textColor="@color/md_blue_900" />
+                  <CheckBox
+                      android:id="@+id/cb_100mm"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:buttonTint="@color/md_blue_900"
+                      android:text="100 mm"
+                      android:layout_weight="1"
+                      android:layout_marginStart="10dp"
+                      android:textColor="@color/md_blue_900" />
+
+                </LinearLayout>
 
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/vertical_start_guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
+              </LinearLayout>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/vertical_end_guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="20dp" />
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/horizontal_start_guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stroke Forward"
+                    android:textColor="@color/md_blue_900"
+                    android:textSize="25sp" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/horizontal_end_guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_end="20dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+                  <CheckBox
+                      android:id="@+id/cb_for_100mm"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:buttonTint="@color/md_blue_900"
+                      android:text="100 mm"
+                      android:textColor="@color/md_blue_900" />
+
+                  <CheckBox
+                      android:id="@+id/cb_110mm"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:buttonTint="@color/md_blue_900"
+                      android:text="110 mm"
+                      android:layout_marginStart="10dp"
+                      android:textColor="@color/md_blue_900" />
+
+                  <CheckBox
+                      android:id="@+id/cb_150mm"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:buttonTint="@color/md_blue_900"
+                      android:text="150 mm"
+                      android:layout_marginStart="10dp"
+                      android:textColor="@color/md_blue_900" />
+                  </LinearLayout>
+
+
+              </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+      <androidx.cardview.widget.CardView
+          android:id="@+id/card_no5"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20dp"
+          android:backgroundTint="@color/md_grey_400"
+          app:cardCornerRadius="15dp"
+          app:cardElevation="15dp"
+          app:cardMaxElevation="20dp"
+          app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+          app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+          app:layout_constraintTop_toBottomOf="@+id/card_no4">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_button"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+          <TextView
+              android:id="@+id/tv_finishing"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="Finishing"
+              android:textColor="@color/md_blue_900"
+              android:textSize="20sp" />
+
+          <CheckBox
+              android:id="@+id/cb_plate_lapping"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:buttonTint="@color/md_blue_900"
+              android:text="Plate Lapping / Etching"
+              android:textColor="@color/md_blue_900" />
+
+          <CheckBox
+              android:id="@+id/cb_cup_lapping"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:buttonTint="@color/md_blue_900"
+              android:text="Cup Lapping"
+              android:textColor="@color/md_blue_900" />
+
+          <CheckBox
+              android:id="@+id/cb_stickering"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:buttonTint="@color/md_blue_900"
+              android:text="Stickering"
+              android:textColor="@color/md_blue_900" />
+
+          <CheckBox
+              android:id="@+id/cb_painting"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:buttonTint="@color/md_blue_900"
+              android:text="Painting"
+              android:textColor="@color/md_blue_900" />
+
+        </LinearLayout>
+
+      </androidx.cardview.widget.CardView>
+
+      <androidx.cardview.widget.CardView
+          android:id="@+id/card_no6"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20dp"
+          android:backgroundTint="@color/md_grey_400"
+          app:cardCornerRadius="15dp"
+          app:cardElevation="15dp"
+          app:cardMaxElevation="20dp"
+          app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+          app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+          app:layout_constraintTop_toBottomOf="@+id/card_no5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_button"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+          <TextView
+              android:id="@+id/tv_accessories"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="Accessories"
+              android:textColor="@color/md_blue_900"
+              android:textSize="20sp" />
+
+          <CheckBox
+              android:id="@+id/cb_main_wire"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:buttonTint="@color/md_blue_900"
+              android:text="Main Wire"
+              android:textColor="@color/md_blue_900" />
+
+          <CheckBox
+              android:id="@+id/cb_foot_switch"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:buttonTint="@color/md_blue_900"
+              android:text="Foot Switch"
+              android:textColor="@color/md_blue_900" />
+
+          <CheckBox
+              android:id="@+id/cb_zig_fixture"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:buttonTint="@color/md_blue_900"
+              android:text="Zig - Fixture"
+              android:textColor="@color/md_blue_900" />
+
+          <CheckBox
+              android:id="@+id/cb_pad"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:buttonTint="@color/md_blue_900"
+              android:text="Pad"
+              android:textColor="@color/md_blue_900" />
+
+          <CheckBox
+              android:id="@+id/cb_plate"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:buttonTint="@color/md_blue_900"
+              android:text="Plate"
+              android:textColor="@color/md_blue_900" />
+          <CheckBox
+              android:id="@+id/cb_cup"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:buttonTint="@color/md_blue_900"
+              android:text="Cup"
+              android:textColor="@color/md_blue_900" />
+          <CheckBox
+              android:id="@+id/cb_ink"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:buttonTint="@color/md_blue_900"
+              android:text="Ink 250g / Solvent"
+              android:textColor="@color/md_blue_900" />
+          <CheckBox
+              android:id="@+id/cb_tool_kit"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:buttonTint="@color/md_blue_900"
+              android:text="Toolkit"
+              android:textColor="@color/md_blue_900" />
+          <CheckBox
+              android:id="@+id/cb_tested_sample"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:buttonTint="@color/md_blue_900"
+              android:text="Tested Sample"
+              android:textColor="@color/md_blue_900" />
+        </LinearLayout>
+
+      </androidx.cardview.widget.CardView>
+
+      <androidx.cardview.widget.CardView
+          android:id="@+id/card_no7"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20dp"
+          android:backgroundTint="@color/md_grey_400"
+          app:cardCornerRadius="15dp"
+          app:cardElevation="15dp"
+          app:cardMaxElevation="20dp"
+          app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+          app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+          app:layout_constraintTop_toBottomOf="@+id/card_no6">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_button"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+          <TextView
+              android:id="@+id/tv_inspection_head"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="Name and Initials of Inspection Head"
+              android:textColor="@color/md_blue_900"
+              android:textSize="20sp" />
+
+          <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/et_form_inspection_name"
+              android:layout_width="match_parent"
+              style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+              android:layout_height="wrap_content"
+              android:hint="Full Name"
+              android:textColorHint="@color/md_blue_900"
+              app:boxStrokeColor="@color/md_blue_900"
+              app:boxStrokeWidthFocused="2dp"
+              app:startIconDrawable="@drawable/fullname_icon"
+              app:startIconTint="@color/md_blue_900">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:fontFamily="@font/bubblegum_sans"
+                android:textColor="@color/md_blue_900">
+            </com.google.android.material.textfield.TextInputEditText>
+          </com.google.android.material.textfield.TextInputLayout>
+          <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/et_form_inspection_initials"
+              android:layout_width="match_parent"
+              style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+              android:layout_height="wrap_content"
+              android:hint="Initials"
+              android:textColorHint="@color/md_blue_900"
+              app:boxStrokeColor="@color/md_blue_900"
+              app:boxStrokeWidthFocused="2dp"
+              app:startIconDrawable="@drawable/fullname_icon"
+              app:startIconTint="@color/md_blue_900">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:fontFamily="@font/bubblegum_sans"
+                android:textColor="@color/md_blue_900">
+            </com.google.android.material.textfield.TextInputEditText>
+          </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+      </androidx.cardview.widget.CardView>
+
+
+      <Button
+          android:id="@+id/btn_submittt"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:background="@drawable/custom_button"
+          android:layout_marginTop="20dp"
+          android:text="Submit"
+          android:textColor="@color/white"
+          android:elevation="10dp"
+          app:layout_constraintTop_toBottomOf="@id/card_no7"
+          app:layout_constraintBottom_toTopOf="@id/horizontal_end_guideline"
+          app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
+          app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_start_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_end_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/horizontal_start_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/horizontal_end_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="20dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
