@@ -19,6 +19,8 @@ import com.example.batech_1.Dashboards.ClientDashboards.Fragments.About_Us;
 import com.example.batech_1.Dashboards.ClientDashboards.Fragments.Client_Forms;
 import com.example.batech_1.Dashboards.ClientDashboards.Fragments.Fragment_Home;
 import com.example.batech_1.Dashboards.ClientDashboards.Fragments.Machines;
+import com.example.batech_1.Dashboards.MainDashboard;
+import com.example.batech_1.Dashboards.ProfileSetting;
 import com.example.batech_1.R;
 import com.google.android.gms.common.api.Api;
 import com.google.android.material.navigation.NavigationView;
@@ -47,6 +49,12 @@ public class ClientDashBoard extends AppCompatActivity implements NavigationView
         home_Transaction.beginTransaction().replace(R.id.client_framelayout,home).addToBackStack("Home").commit();
 
         navigationDrawer();
+
+        img_profile.setOnClickListener(v->{
+            startActivity(new Intent(ClientDashBoard.this, ProfileSetting.class));
+            finish();
+        });
+
         img_back.setOnClickListener(view->{
             drawerLayout.openDrawer(GravityCompat.START);
         });

@@ -11,8 +11,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:tabMode="fixed"
-        android:background="@color/md_blue_grey_50"
-
+        app:tabSelectedTextColor="@color/custom_black_off"
+        app:tabIndicatorColor="@color/custom_black_off"
+        app:tabTextColor="@color/md_grey_500"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -21,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tab_site_intervention"
-            android:text="Site Intervention Form"/>
+            android:text="Site Intervention Form" />
 
 
         <com.google.android.material.tabs.TabItem

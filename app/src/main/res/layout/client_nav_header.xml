@@ -2,26 +2,27 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:paddingLeft="15dp"
-    android:background="@color/md_blue_900">
+    android:paddingStart="15dp"
+    android:background="@color/md_white_off1">
 
     <TextView
         android:id="@+id/menu_slogan"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="production Name"
+        android:text="Developed by RAZ"
         android:fontFamily="@font/bubblegum_sans"
         android:layout_marginBottom="10dp"
-        android:textColor="@color/md_white_off1"
+        android:textColor="@color/custom_black_off"
         android:layout_alignParentBottom="true"/>
     <TextView
         android:id="@+id/menu_logo"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="Name"
-        android:fontFamily="@font/bubblegum_sans"
+        android:text="Batech"
         android:textSize="24dp"
-        android:textColor="@color/md_white_off1"
+        android:gravity="start"
+        android:foregroundGravity="left"
+        android:textColor="@color/custom_black_off"
         android:layout_above="@id/menu_slogan"
         />
     <ImageView
@@ -32,10 +33,13 @@
         android:src="@drawable/menu_menulogo_icon"/>
 
     <ImageView
-        android:layout_width="160dp"
-        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_height="175dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@id/menu_slogan"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
         android:src="@mipmap/batech_dark_transparent"/>
 
 </RelativeLayout>

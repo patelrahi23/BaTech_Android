@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/custom_yellow"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Dashboards.ClientDashboards.Fragments.Forms.SiteIntervention">
 
@@ -10,12 +11,11 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content">
 
-
        <androidx.cardview.widget.CardView
            android:id="@+id/card_no1"
            android:layout_width="0dp"
            android:layout_height="wrap_content"
-           android:backgroundTint="@color/md_grey_400"
+           android:backgroundTint="@color/white"
            app:cardCornerRadius="15dp"
            app:cardElevation="15dp"
            app:cardMaxElevation="20dp"
@@ -43,7 +43,7 @@
 
                        android:padding="5dp"
                        android:text="Complaint No: "
-                       android:textColor="@color/md_blue_900"
+                       android:textColor="@color/custom_black_off"
                        android:textSize="20sp" />
 
                    <TextView
@@ -53,7 +53,7 @@
                        android:padding="5dp"
                        android:text=""
                        android:hint="(Not Assigned)"
-                       android:textColor="@color/md_blue_900"
+                       android:textColor="@color/custom_black_off"
                        android:textSize="20sp" />
 
                </LinearLayout>
@@ -72,7 +72,7 @@
                        android:layout_height="wrap_content"
                        android:padding="5dp"
                        android:text="Date of Complain"
-                       android:textColor="@color/md_blue_900"
+                       android:textColor="@color/custom_black_off"
                        android:textSize="20sp" />
 
                    <TextView
@@ -81,7 +81,7 @@
                        android:layout_height="wrap_content"
                        android:padding="5dp"
                        android:hint="MM/DD/YYYY"
-                       android:textColor="@color/md_blue_900"
+                       android:textColor="@color/custom_black_off"
                        android:textSize="20sp" />
                </LinearLayout>
 
@@ -96,7 +96,8 @@
            android:id="@+id/card_no2"
            android:layout_width="0dp"
            android:layout_height="wrap_content"
-           android:backgroundTint="@color/md_grey_400"
+           android:background="@color/white"
+           android:backgroundTint="@null"
            app:cardCornerRadius="15dp"
            app:cardElevation="15dp"
            android:layout_marginTop="20dp"
@@ -105,17 +106,12 @@
            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
            app:layout_constraintTop_toBottomOf="@+id/card_no1">
 
-           <RelativeLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_margin="20dp"
-               android:background="@color/transparent">
-
                <LinearLayout
                    android:id="@+id/lin3"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
                    android:orientation="vertical"
+                   android:padding="10dp"
                    android:layout_alignParentTop="true"
                    android:layout_alignParentStart="true">
 
@@ -125,17 +121,17 @@
                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                        android:layout_height="wrap_content"
                        android:hint="Full Name"
-                       android:textColorHint="@color/md_blue_900"
-                       app:boxStrokeColor="@color/md_blue_900"
+                       android:textColorHint="@color/custom_black_off"
+                       app:boxStrokeColor="@color/custom_black_off"
                        app:boxStrokeWidthFocused="2dp"
                        app:startIconDrawable="@drawable/fullname_icon"
-                       app:startIconTint="@color/md_blue_900">
+                       app:startIconTint="@color/custom_black_off">
                        <com.google.android.material.textfield.TextInputEditText
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:inputType="text"
                            android:fontFamily="@font/bubblegum_sans"
-                           android:textColor="@color/md_blue_900">
+                           android:textColor="@color/custom_black_off">
                        </com.google.android.material.textfield.TextInputEditText>
                    </com.google.android.material.textfield.TextInputLayout>
 
@@ -145,18 +141,18 @@
                        android:layout_height="wrap_content"
                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                        android:hint="Email"
-                       android:textColorHint="@color/md_blue_900"
-                       app:boxStrokeColor="@color/md_blue_900"
+                       android:textColorHint="@color/custom_black_off"
+                       app:boxStrokeColor="@color/custom_black_off"
                        android:layout_marginTop="10dp"
                        app:boxStrokeWidthFocused="2dp"
                        app:startIconDrawable="@drawable/ic_name"
-                       app:startIconTint="@color/md_blue_900">
+                       app:startIconTint="@color/custom_black_off">
                        <com.google.android.material.textfield.TextInputEditText
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:inputType="textEmailAddress"
                            android:fontFamily="@font/bubblegum_sans"
-                           android:textColor="@color/md_blue_900">
+                           android:textColor="@color/custom_black_off">
                        </com.google.android.material.textfield.TextInputEditText>
 
                    </com.google.android.material.textfield.TextInputLayout>
@@ -167,18 +163,18 @@
                        android:layout_height="wrap_content"
                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                        android:hint="Address"
-                       android:textColorHint="@color/md_blue_900"
-                       app:boxStrokeColor="@color/md_blue_900"
+                       android:textColorHint="@color/custom_black_off"
+                       app:boxStrokeColor="@color/custom_black_off"
                        android:layout_marginTop="10dp"
                        app:boxStrokeWidthFocused="2dp"
                        app:startIconDrawable="@drawable/ic_address"
-                       app:startIconTint="@color/md_blue_900">
+                       app:startIconTint="@color/custom_black_off">
                        <com.google.android.material.textfield.TextInputEditText
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:inputType="textPostalAddress"
                            android:fontFamily="@font/bubblegum_sans"
-                           android:textColor="@color/md_blue_900">
+                           android:textColor="@color/custom_black_off">
                        </com.google.android.material.textfield.TextInputEditText>
 
                    </com.google.android.material.textfield.TextInputLayout>
@@ -190,30 +186,29 @@
                        android:layout_height="wrap_content"
                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                        android:hint="Phone"
-                       android:textColorHint="@color/md_blue_900"
-                       app:boxStrokeColor="@color/md_blue_900"
+                       android:textColorHint="@color/custom_black_off"
+                       app:boxStrokeColor="@color/custom_black_off"
                        android:layout_marginTop="10dp"
                        app:boxStrokeWidthFocused="2dp"
                        app:startIconDrawable="@drawable/ic_call"
-                       app:startIconTint="@color/md_blue_900">
+                       app:startIconTint="@color/custom_black_off">
                        <com.google.android.material.textfield.TextInputEditText
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:inputType="number"
                            android:fontFamily="@font/bubblegum_sans"
-                           android:textColor="@color/md_blue_900">
+                           android:textColor="@color/custom_black_off">
                        </com.google.android.material.textfield.TextInputEditText>
 
                    </com.google.android.material.textfield.TextInputLayout>
                </LinearLayout>
-           </RelativeLayout>
        </androidx.cardview.widget.CardView>
 
        <androidx.cardview.widget.CardView
            android:id="@+id/card_no3"
            android:layout_width="0dp"
            android:layout_height="wrap_content"
-           android:backgroundTint="@color/md_grey_400"
+           android:backgroundTint="@color/white"
            app:cardCornerRadius="15dp"
            app:cardElevation="15dp"
            android:layout_marginTop="20dp"
@@ -222,17 +217,12 @@
            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
            app:layout_constraintTop_toBottomOf="@+id/card_no2">
 
-           <RelativeLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_margin="20dp"
-               android:background="@color/transparent">
-
                <LinearLayout
                    android:id="@+id/lin4"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
                    android:orientation="vertical"
+                   android:padding="10dp"
                    android:layout_alignParentTop="true"
                    android:layout_alignParentStart="true">
 
@@ -242,17 +232,17 @@
                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                        android:layout_height="wrap_content"
                        android:hint="Product Name"
-                       android:textColorHint="@color/md_blue_900"
-                       app:boxStrokeColor="@color/md_blue_900"
+                       android:textColorHint="@color/custom_black_off"
+                       app:boxStrokeColor="@color/custom_black_off"
                        app:boxStrokeWidthFocused="2dp"
                        app:startIconDrawable="@drawable/fullname_icon"
-                       app:startIconTint="@color/md_blue_900">
+                       app:startIconTint="@color/custom_black_off">
                        <com.google.android.material.textfield.TextInputEditText
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:inputType="text"
                            android:fontFamily="@font/bubblegum_sans"
-                           android:textColor="@color/md_blue_900">
+                           android:textColor="@color/custom_black_off">
                        </com.google.android.material.textfield.TextInputEditText>
                    </com.google.android.material.textfield.TextInputLayout>
 
@@ -262,18 +252,18 @@
                        android:layout_height="wrap_content"
                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                        android:hint="Product Model"
-                       android:textColorHint="@color/md_blue_900"
-                       app:boxStrokeColor="@color/md_blue_900"
+                       android:textColorHint="@color/custom_black_off"
+                       app:boxStrokeColor="@color/custom_black_off"
                        android:layout_marginTop="10dp"
                        app:boxStrokeWidthFocused="2dp"
                        app:startIconDrawable="@drawable/ic_product_model"
-                       app:startIconTint="@color/md_blue_900">
+                       app:startIconTint="@color/custom_black_off">
                        <com.google.android.material.textfield.TextInputEditText
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:inputType="textEmailAddress"
                            android:fontFamily="@font/bubblegum_sans"
-                           android:textColor="@color/md_blue_900">
+                           android:textColor="@color/custom_black_off">
                        </com.google.android.material.textfield.TextInputEditText>
 
                    </com.google.android.material.textfield.TextInputLayout>
@@ -284,18 +274,18 @@
                        android:layout_height="wrap_content"
                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                        android:hint="Other Specs"
-                       android:textColorHint="@color/md_blue_900"
-                       app:boxStrokeColor="@color/md_blue_900"
+                       android:textColorHint="@color/custom_black_off"
+                       app:boxStrokeColor="@color/custom_black_off"
                        android:layout_marginTop="10dp"
                        app:boxStrokeWidthFocused="2dp"
                        app:startIconDrawable="@drawable/ic_designation"
-                       app:startIconTint="@color/md_blue_900">
+                       app:startIconTint="@color/custom_black_off">
                        <com.google.android.material.textfield.TextInputEditText
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:inputType="textPostalAddress"
                            android:fontFamily="@font/bubblegum_sans"
-                           android:textColor="@color/md_blue_900">
+                           android:textColor="@color/custom_black_off">
                        </com.google.android.material.textfield.TextInputEditText>
 
                    </com.google.android.material.textfield.TextInputLayout>
@@ -305,20 +295,20 @@
                        android:id="@+id/tv_date_of_visit"
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"
-                       android:background="@drawable/custom_button"
+                       android:background="@drawable/button_contact_us"
                        android:hint="Date Of Visit"
                        android:gravity="center"
                        android:textSize="20sp"
                        android:padding="10dp"
-                       android:textColorHint="@color/md_blue_900"
-                       app:boxStrokeColor="@color/md_blue_900"
+                       android:textColorHint="@color/custom_black_off"
+                       app:boxStrokeColor="@color/custom_black_off"
                        android:layout_marginTop="10dp"/>
 
                    <LinearLayout
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"
                        android:layout_marginTop="10dp"
-                       android:background="@drawable/custom_button"
+                       android:background="@drawable/button_contact_us"
                        android:padding="10dp"
                        android:orientation="vertical">
 
@@ -328,23 +318,23 @@
                            android:layout_height="wrap_content"
                            android:text="Warranty Status"
                            android:textSize="20sp"
-                           android:textColor="@color/md_blue_900"/>
+                           android:textColor="@color/custom_black_off"/>
 
                        <CheckBox
                            android:id="@+id/cb_warranty_yes"
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
                            android:text="yes"
-                           android:buttonTint="@color/md_blue_900"
-                           android:textColor="@color/md_blue_900"/>
+                           android:buttonTint="@color/custom_black_off"
+                           android:textColor="@color/custom_black_off"/>
 
                        <CheckBox
                            android:id="@+id/cb_warranty_no"
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
                            android:text="No"
-                           android:buttonTint="@color/md_blue_900"
-                           android:textColor="@color/md_blue_900"/>
+                           android:buttonTint="@color/custom_black_off"
+                           android:textColor="@color/custom_black_off"/>
 
                    </LinearLayout>
 
@@ -352,7 +342,7 @@
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"
                        android:layout_marginTop="10dp"
-                       android:background="@drawable/custom_button"
+                       android:background="@drawable/button_contact_us"
                        android:padding="10dp"
                        android:orientation="vertical">
 
@@ -362,43 +352,42 @@
                            android:layout_height="wrap_content"
                            android:text="Nature Of Call"
                            android:textSize="20sp"
-                           android:textColor="@color/md_blue_900"/>
+                           android:textColor="@color/custom_black_off"/>
 
                        <CheckBox
                            android:id="@+id/cb_machine_complain"
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
                            android:text="Machine Complaint"
-                           android:buttonTint="@color/md_blue_900"
-                           android:textColor="@color/md_blue_900"/>
+                           android:buttonTint="@color/custom_black_off"
+                           android:textColor="@color/custom_black_off"/>
 
                        <CheckBox
                            android:id="@+id/cb_machine_installation"
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
                            android:text="Machine Installation"
-                           android:buttonTint="@color/md_blue_900"
-                           android:textColor="@color/md_blue_900"/>
+                           android:buttonTint="@color/custom_black_off"
+                           android:textColor="@color/custom_black_off"/>
 
                        <CheckBox
                            android:id="@+id/cb_print_problem"
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
                            android:text="Print Distortion"
-                           android:buttonTint="@color/md_blue_900"
-                           android:textColor="@color/md_blue_900"/>
+                           android:buttonTint="@color/custom_black_off"
+                           android:textColor="@color/custom_black_off"/>
 
                    </LinearLayout>
 
                </LinearLayout>
-           </RelativeLayout>
        </androidx.cardview.widget.CardView>
 
        <androidx.cardview.widget.CardView
            android:id="@+id/card_no4"
            android:layout_width="0dp"
            android:layout_height="wrap_content"
-           android:backgroundTint="@color/md_grey_400"
+           android:backgroundTint="@color/white"
            app:cardCornerRadius="15dp"
            app:cardElevation="15dp"
            android:layout_marginTop="20dp"
@@ -407,17 +396,12 @@
            app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
            app:layout_constraintTop_toBottomOf="@+id/card_no3">
 
-           <RelativeLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_margin="20dp"
-               android:background="@color/transparent">
-
                <LinearLayout
                    android:id="@+id/lin5"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
                    android:orientation="vertical"
+                   android:padding="10dp"
                    android:layout_alignParentTop="true"
                    android:layout_alignParentStart="true">
 
@@ -428,18 +412,18 @@
                        android:layout_height="wrap_content"
                        app:counterMaxLength="200"
                        android:hint="Problem Reported By Customer"
-                       android:textColorHint="@color/md_blue_900"
-                       app:boxStrokeColor="@color/md_blue_900"
+                       android:textColorHint="@color/custom_black_off"
+                       app:boxStrokeColor="@color/custom_black_off"
                        app:boxStrokeWidthFocused="2dp"
                        app:startIconDrawable="@drawable/ic_problem"
-                       app:startIconTint="@color/md_blue_900">
+                       app:startIconTint="@color/custom_black_off">
                        <com.google.android.material.textfield.TextInputEditText
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:inputType="textImeMultiLine|text"
                            android:maxLines="10"
                            android:fontFamily="@font/bubblegum_sans"
-                           android:textColor="@color/md_blue_900">
+                           android:textColor="@color/custom_black_off">
                        </com.google.android.material.textfield.TextInputEditText>
                    </com.google.android.material.textfield.TextInputLayout>
 
@@ -449,18 +433,18 @@
                        android:layout_height="wrap_content"
                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                        android:hint="Site Observation &amp; Action Taken by Service Engineer"
-                       android:textColorHint="@color/md_blue_900"
-                       app:boxStrokeColor="@color/md_blue_900"
+                       android:textColorHint="@color/custom_black_off"
+                       app:boxStrokeColor="@color/custom_black_off"
                        android:layout_marginTop="10dp"
                        app:boxStrokeWidthFocused="2dp"
                        app:startIconDrawable="@drawable/ic_name"
-                       app:startIconTint="@color/md_blue_900">
+                       app:startIconTint="@color/custom_black_off">
                        <com.google.android.material.textfield.TextInputEditText
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:inputType="textImeMultiLine|text"
                            android:fontFamily="@font/bubblegum_sans"
-                           android:textColor="@color/md_blue_900">
+                           android:textColor="@color/custom_black_off">
                        </com.google.android.material.textfield.TextInputEditText>
 
                    </com.google.android.material.textfield.TextInputLayout>
@@ -469,7 +453,7 @@
                       android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="vertical"
-                      android:background="@drawable/custom_button"
+                      android:background="@drawable/button_contact_us"
                       android:padding="10dp"
                       android:layout_marginTop="10dp">
                       <TextView
@@ -478,28 +462,28 @@
                           android:layout_height="wrap_content"
                           android:hint="Feedback"
                           android:textSize="20sp"
-                          android:textColorHint="@color/md_blue_900"
-                          app:boxStrokeColor="@color/md_blue_900"/>
+                          android:textColorHint="@color/custom_black_off"
+                          app:boxStrokeColor="@color/custom_black_off"/>
 
                       <RatingBar
                           android:id="@+id/rb_forms_ratingBar"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:numStars="5"
-                         android:progressTint="@color/md_blue_900"
-                          android:progressBackgroundTint="@color/md_blue_900"/>
+                         android:progressTint="@color/custom_black_off"
+                          android:progressBackgroundTint="@color/white"/>
                   </LinearLayout>
                </LinearLayout>
-           </RelativeLayout>
        </androidx.cardview.widget.CardView>
 
-       <Button
+       <com.google.android.material.button.MaterialButton
            android:id="@+id/btn_submittt"
            android:layout_width="0dp"
            android:layout_height="wrap_content"
-           android:background="@drawable/custom_button"
+           android:backgroundTint="@color/custom_black_off"
            android:layout_marginTop="20dp"
            android:text="Submit"
+           app:cornerRadius="10dp"
            android:textColor="@color/white"
            android:elevation="10dp"
            app:layout_constraintTop_toBottomOf="@id/card_no4"

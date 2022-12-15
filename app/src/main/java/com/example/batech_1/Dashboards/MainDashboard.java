@@ -7,6 +7,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -42,6 +43,11 @@ public class MainDashboard extends AppCompatActivity implements NavigationView.O
         home_Transaction.beginTransaction().replace(R.id.client_framelayout,home).addToBackStack("Home").commit();
 
         navigationDrawer();
+
+        img_profile.setOnClickListener(v->{
+            startActivity(new Intent(MainDashboard.this,ProfileSetting.class));
+            finish();
+        });
 
         img_back.setOnClickListener(view->{
             drawerLayout.openDrawer(GravityCompat.START);

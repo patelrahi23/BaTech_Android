@@ -5,9 +5,17 @@
     <color name="simpletooltip_arrow">@color/md_white</color>
     <color name="blackss">#a8a8a8</color>
 
+    <color name="background">#90bede</color>
+
     <color name="colorPrimary">#ff0d47a1</color>
     <color name="colorPrimaryDark">#ff2962ff</color>
     <color name="colorAccent">#ff448aff</color>
+
+    <color name="custom_button_green">#4da167</color>
+    <color name="custom_blue_light">#90bede</color>
+    <color name="custom_blue_dark">#106787</color>
+    <color name="custom_orange">#f6ae2d</color>
+    <color name="custom_yellow">#fece2f</color>
 
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
@@ -22,6 +30,7 @@
     <color name="transparent">#00000000</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="custom_black_off">#121111</color>
     <color name="backgroundapp_dark1">#ECECEC</color>
     <color name="nv_blue">#01579B</color>
     <color name="nv_green">#2196F3</color>

@@ -194,7 +194,7 @@ public class SiteIntervention extends Fragment {
             userinfo.put("Complaint Number",userCalss.getComplain_number());
             userinfo.put("Rating",userCalss.getRating());
 
-            DocumentReference cref = firestore.collection("Site Intervention Report").document();
+            DocumentReference cref = firestore.collection("Site Intervention Report").document(fname);
 
             cref.set(userinfo).addOnSuccessListener(documentReference -> {
                 Toast.makeText(requireContext(),"Success For Filing a Complain",Toast.LENGTH_LONG).show();

@@ -300,8 +300,7 @@
                     android:layout_marginTop="10dp"
                     android:text="My vision for India is its unparalleled growth in the field of Automation. I believe our country has a lot of potential for success in this industry, however, the refusal of several founders in this field to discuss their automation ideas out loud has resulted in the stagnation of our growth."
                     android:textColor="@color/custom_black_off"
-                    android:textSize="25sp"
-                    tools:targetApi="o" />
+                    android:textSize="25sp" />
 
             </LinearLayout>
 

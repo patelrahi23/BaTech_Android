@@ -4,7 +4,7 @@ public class UserClass {
 
 String fname, email,pass, ph_number, gender, DOB, organisation, uid, address,product_name, product_Model, product_specs, product_report, form_action, complain_date, date_visit, warranty_status, machine_complain,machine_installation, print_problem;
     String complain_number;
-    float rating;
+    double rating;
 
     public String getUid() {
         return uid;
@@ -118,11 +118,11 @@ String fname, email,pass, ph_number, gender, DOB, organisation, uid, address,pro
         this.complain_number = complain_number;
     }
 
-    public float getRating() {
+    public double getRating() {
         return rating;
     }
 
-    public void setRating(float rating) {
+    public void setRating(double rating) {
         this.rating = rating;
     }
 

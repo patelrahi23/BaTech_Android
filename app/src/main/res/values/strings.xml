@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Batech_1</string>
+    <string name="app_name">Batech</string>
     <string name="client">Client</string>
     <string name="admin">Admin</string>
     <string name="login">Login</string>

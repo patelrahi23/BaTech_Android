@@ -26,10 +26,10 @@
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/client_navigation_view"
             android:layout_width="match_parent"
-            android:theme="@style/navigationTheme"
+            app:itemBackground="@drawable/drawer_selected_item"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:background="@color/md_white_off"
+            app:itemIconTint="@color/custom_black_off"
             app:headerLayout="@layout/client_nav_header"
             app:menu="@menu/client_main_menu"
             />

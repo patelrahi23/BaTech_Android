@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:background="@color/custom_yellow"
-    tools:context=".Login.Signup1">
+    android:layout_height="match_parent"
+    tools:context=".Dashboards.ProfileSetting">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,9 +14,9 @@
         <TextView
             android:id="@+id/tv_admin_signup_label"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="Create\nAccount"
+            android:layout_height="150dp"
+            android:layout_marginTop="10dp"
+            android:text="Edit\nAccount"
             android:fontFamily="@font/bubblegum_sans"
             android:textAllCaps="true"
             android:textColor="@color/custom_black_off"
@@ -24,6 +24,47 @@
             app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
             app:layout_constraintTop_toTopOf="@id/horizontal_start_guideline"/>
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/md_white"
+            app:cardCornerRadius="75dp"
+            app:cardElevation="5dp"
+            app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/tv_admin_signup_label"
+            app:layout_constraintTop_toTopOf="@id/horizontal_start_guideline">
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_baseline_person_24" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:backgroundTint="@color/md_white_off"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/cardView"
+            app:layout_constraintEnd_toEndOf="@+id/cardView">
+
+            <ImageView
+                android:id="@+id/add_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:background="@color/custom_orange"
+                android:src="@drawable/ic_baseline_add_24" />
+
+
+        </androidx.cardview.widget.CardView>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -122,26 +163,73 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_next"
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/ccp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                app:backgroundTint="@null"
-                android:background="@drawable/custom_button"
+                app:ccp_autoDetectCountry="true"
                 android:layout_marginTop="20dp"
-                android:text="Next"/>
+                app:ccp_showFlag="true"
+                app:ccp_showNameCode="true"
+                android:background="@drawable/blue_border"
+                app:ccp_showFullName="true"/>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/signup_login_btn"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/et_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:text="@string/login"
-                android:textColor="@color/custom_black_off"
-                />
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:hint="Phone Number"
+                android:layout_marginTop="10dp"
+                android:textColorHint="@color/custom_black_off"
+                app:boxStrokeColor="@color/custom_black_off"
+                app:boxStrokeWidthFocused="2dp"
+                app:startIconDrawable="@drawable/ic_call"
+                app:startIconTint="@color/custom_black_off">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:fontFamily="@font/bubblegum_sans"
+                    android:textColor="@color/custom_black_off">
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
 
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/et_designation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:hint="Designation"
+                android:textColorHint="@color/custom_black_off"
+                app:boxStrokeColor="@color/custom_black_off"
+                app:boxStrokeWidthFocused="2dp"
+                android:layout_marginTop="10dp"
+                app:startIconDrawable="@drawable/ic_designation"
+                app:startIconTint="@color/custom_black_off">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:fontFamily="@font/bubblegum_sans"
+                    android:textColor="@color/custom_black_off">
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_update"
+                android:background="@drawable/custom_button"
+                app:backgroundTint="@null"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@null"
+                android:text="Update"
+                android:textColor="@color/white"
+                app:strokeColor="@color/custom_black_off" />
         </LinearLayout>
+
 
 
         <androidx.constraintlayout.widget.Guideline

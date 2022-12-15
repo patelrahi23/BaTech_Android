@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -69,7 +70,7 @@ public class MachineAdapter extends RecyclerView.Adapter<MachineAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView tv_name, tv_model, tv_desc;
-        ConstraintLayout cons;
+        CardView cons;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

@@ -17,19 +17,24 @@
             android:layout_gravity="center"
             android:padding="5dp"
             android:text="At Batech We Provide:"
-            android:textColor="@color/md_blue_900"
+            android:textColor="@color/custom_black_off"
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/card_1"
             app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
             app:layout_constraintTop_toTopOf="@id/horizontal_start_guideline" />
 
 
-        <RelativeLayout
+        <androidx.cardview.widget.CardView
             android:id="@+id/card_1"
             android:layout_width="0dp"
             android:layout_height="190dp"
-            android:background="@color/transparent"
-            android:backgroundTint="@color/transparent"
+            android:background="@color/white"
+            app:cardCornerRadius="10dp"
+            android:elevation="20dp"
+            android:layout_marginTop="20dp"
+            app:cardMaxElevation="20dp"
+            app:cardElevation="20dp"
+            android:backgroundTint="@null"
             app:layout_constraintBottom_toTopOf="@+id/card_2"
             app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
             app:layout_constraintHorizontal_bias="0.5"
@@ -38,17 +43,19 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_margin="20dp"
-                android:background="@color/md_blue_900">
+                android:layout_height="match_parent"
+                >
 
                 <TextView
+                    android:id="@+id/tv_print_services"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:padding="25dp"
+                    android:layout_alignParentTop="true"
+                    android:padding="14dp"
+                    android:layout_toStartOf="@id/print_services"
                     android:text="Printing Services"
-                    android:textColor="@color/md_white_off"
+                    android:textColor="@color/custom_black_off"
                     android:textSize="25sp" />
 
                 <Button
@@ -58,26 +65,36 @@
                     android:layout_alignParentBottom="true"
                     android:background="#00000000"
                     android:padding="20dp"
+                    android:layout_toStartOf="@id/print_services"
+                    android:layout_alignParentStart="true"
                     android:text="View in Browser"
-                    android:textColor="@color/md_white_off" />
+                    android:textColor="@color/custom_black_off" />
+
+                <ImageView
+                    android:id="@+id/print_services"
+                    android:layout_width="122dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="end"
+                    android:src="@mipmap/printing_services" />
             </RelativeLayout>
 
-            <ImageView
-                android:id="@+id/print_services"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_alignParentEnd="true"
-                android:layout_gravity="end"
-                android:layout_marginTop="-20dp"
-                android:src="@mipmap/printing_services" />
-        </RelativeLayout>
 
-        <RelativeLayout
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:id="@+id/card_2"
             android:layout_width="0dp"
             android:layout_height="190dp"
-            android:background="@color/transparent"
-            android:backgroundTint="@color/transparent"
+            android:background="@color/custom_yellow"
+            android:backgroundTint="@color/custom_yellow"
+            app:cardCornerRadius="10dp"
+            android:layout_marginTop="20dp"
+            app:cardMaxElevation="20dp"
+            android:elevation="20dp"
+            app:cardElevation="20dp"
             app:layout_constraintBottom_toTopOf="@+id/card_3"
             app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
             app:layout_constraintHorizontal_bias="0.5"
@@ -86,25 +103,25 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_margin="20dp"
-                android:background="@color/md_blue_900">
+                android:layout_height="match_parent"
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_toRightOf="@id/screen_print"
+                    android:layout_alignParentEnd="false"
+                    android:layout_alignParentStart="true"
+                    android:layout_toLeftOf="@id/screen_print"
                     android:padding="14dp"
                     android:text="Screen Printing Services"
-                    android:textColor="@color/md_white_off"
+                    android:textColor="@color/custom_black_off"
                     android:textSize="25sp" />
 
                 <ImageView
                     android:id="@+id/screen_print"
                     android:layout_width="122dp"
                     android:layout_height="122dp"
-                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentBottom="true"
                     android:src="@mipmap/screen_printing" />
@@ -113,23 +130,29 @@
                     android:id="@+id/btn_screen_print"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/screen_print"
                     android:layout_alignParentBottom="true"
                     android:background="#00000000"
                     android:padding="20dp"
                     android:text="View in Browser"
-                    android:textColor="@color/md_white_off" />
+                    android:textColor="@color/custom_black_off" />
             </RelativeLayout>
 
 
-        </RelativeLayout>
+        </androidx.cardview.widget.CardView>
 
-        <RelativeLayout
+        <androidx.cardview.widget.CardView
             android:id="@+id/card_3"
             android:layout_width="0dp"
             android:layout_height="190dp"
-            android:background="@color/transparent"
-            android:backgroundTint="@color/transparent"
+            android:background="@color/white"
+            android:backgroundTint="@color/white"
+            app:cardMaxElevation="20dp"
+            android:elevation="20dp"
+            app:cardCornerRadius="10dp"
+            android:layout_marginTop="20dp"
+            app:cardElevation="20dp"
             app:layout_constraintBottom_toTopOf="@+id/card_4"
             app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
             app:layout_constraintHorizontal_bias="0.5"
@@ -138,9 +161,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_margin="20dp"
-                android:background="@color/md_blue_900">
+                android:layout_height="match_parent">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -148,7 +169,8 @@
                     android:layout_alignParentStart="true"
                     android:padding="14dp"
                     android:text="Laser Marking Services"
-                    android:textColor="@color/md_white_off"
+                    android:textColor="@color/custom_black_off"
+                    android:layout_toStartOf="@id/laser_print"
                     android:textSize="25sp" />
 
 
@@ -161,26 +183,33 @@
                     android:background="#00000000"
                     android:padding="20dp"
                     android:text="View in Browser"
-                    android:textColor="@color/md_white_off" />
+                    android:textColor="@color/custom_black_off"
+                    android:layout_toStartOf="@id/laser_print"/>
+
+                <ImageView
+                    android:id="@+id/laser_print"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="end"
+                    android:src="@mipmap/laser_print" />
             </RelativeLayout>
 
-            <ImageView
-                android:id="@+id/laser_print"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_alignParentEnd="true"
-                android:layout_gravity="end"
-                android:src="@mipmap/laser_print" />
 
-        </RelativeLayout>
 
-        <RelativeLayout
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:id="@+id/card_4"
             android:layout_width="0dp"
             android:layout_height="190dp"
-            android:layout_marginTop="15dp"
-            android:background="@color/transparent"
-            android:backgroundTint="@color/transparent"
+            android:layout_marginTop="20dp"
+            android:background="@color/custom_yellow"
+            android:backgroundTint="@color/custom_yellow"
+            android:elevation="20dp"
+            app:cardMaxElevation="20dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="20dp"
             app:layout_constraintBottom_toTopOf="@+id/tv_us_batech"
             app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
             app:layout_constraintHorizontal_bias="0.5"
@@ -189,43 +218,42 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_margin="20dp"
-                android:background="@color/md_blue_900">
+                android:layout_height="match_parent">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_toRightOf="@id/pad_print"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/pad_print"
                     android:padding="14dp"
                     android:text="Pad Printing Services"
-                    android:textColor="@color/md_white_off"
+                    android:textColor="@color/custom_black_off"
                     android:textSize="25sp" />
 
                 <ImageView
                     android:id="@+id/pad_print"
                     android:layout_width="122dp"
-                    android:layout_height="122dp"
-                    android:layout_alignParentStart="true"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="false"
+                    android:layout_alignParentEnd="true"
                     android:layout_alignParentTop="true"
-                    android:layout_alignParentBottom="true"
                     android:src="@mipmap/pad_print" />
 
                 <Button
                     android:id="@+id/btn_pad_print"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/pad_print"
                     android:layout_alignParentBottom="true"
                     android:background="#00000000"
                     android:padding="20dp"
                     android:text="View in Browser"
-                    android:textColor="@color/md_white_off" />
+                    android:textColor="@color/custom_black_off" />
             </RelativeLayout>
 
 
-        </RelativeLayout>
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/tv_us_batech"
@@ -235,7 +263,7 @@
             android:layout_marginTop="20dp"
             android:padding="5dp"
             android:text="Batech at Printing Industry:"
-            android:textColor="@color/md_blue_900"
+            android:textColor="@color/custom_black_off"
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/card_5"
             app:layout_constraintStart_toStartOf="@id/vertical_start_guideline"
@@ -247,7 +275,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:backgroundTint="@color/md_grey_400"
+            android:backgroundTint="#7adccf"
             app:cardCornerRadius="15dp"
             app:cardElevation="15dp"
             app:cardMaxElevation="20dp"
@@ -272,7 +300,7 @@
                     android:layout_toEndOf="@id/infra_icon"
                     android:padding="5dp"
                     android:text="Infrastructure"
-                    android:textColor="@color/md_blue_900"
+                    android:textColor="@color/custom_black_off"
                     android:textSize="25sp" />
 
                 <TextView
@@ -282,7 +310,7 @@
                     android:layout_toEndOf="@id/infra_icon"
                     android:padding="5dp"
                     android:text="In order to remain in-step with the needs of our clients, we have built a well-equipped infrastructure for better and faster production."
-                    android:textColor="@color/md_blue_900"
+                    android:textColor="@color/custom_black_off"
                     android:textSize="20sp" />
 
                 <ImageView
@@ -304,7 +332,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:backgroundTint="@color/md_grey_400"
+            android:backgroundTint="#f7c59f"
             app:cardCornerRadius="15dp"
             app:cardElevation="15dp"
             app:cardMaxElevation="20dp"
@@ -329,7 +357,7 @@
                     android:layout_toEndOf="@id/quality_icon"
                     android:padding="5dp"
                     android:text="Quality"
-                    android:textColor="@color/md_blue_900"
+                    android:textColor="@color/custom_black_off"
                     android:textSize="25sp" />
 
                 <TextView
@@ -339,7 +367,7 @@
                     android:layout_toEndOf="@id/quality_icon"
                     android:padding="5dp"
                     android:text="With our experts continuously making tremendous strides in technological advancements, our machines offer impeccable quality, one that remains unmatched by our competitors."
-                    android:textColor="@color/md_blue_900"
+                    android:textColor="@color/custom_black_off"
                     android:textSize="20sp" />
 
                 <ImageView
@@ -361,7 +389,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:backgroundTint="@color/md_grey_400"
+            android:backgroundTint="#b8d7f5"
             app:cardCornerRadius="15dp"
             app:cardElevation="15dp"
             app:cardMaxElevation="20dp"
@@ -386,7 +414,7 @@
                     android:layout_toEndOf="@id/vision_icon"
                     android:padding="5dp"
                     android:text="Vision"
-                    android:textColor="@color/md_blue_900"
+                    android:textColor="@color/custom_black_off"
                     android:textSize="25sp" />
 
                 <TextView
@@ -396,7 +424,7 @@
                     android:layout_toEndOf="@id/vision_icon"
                     android:padding="5dp"
                     android:text="Our vision behind this initiative has always been the provision of optimum value to our customers. It is our commitment of quality to our clients that has made BATECH an industry leader in Pad and Pen Printing machines as well as Laser Marking machines."
-                    android:textColor="@color/md_blue_900"
+                    android:textColor="@color/custom_black_off"
                     android:textSize="20sp" />
 
                 <ImageView
@@ -419,6 +447,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/button_contact_us"
             android:text="Contact Us"
+            android:textColor="@color/custom_black_off"
             android:layout_marginTop="20dp"
             app:layout_constraintBottom_toBottomOf="@id/horizontal_end_guideline"
             app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"

@@ -11,8 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
 
-
-
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -95,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"
-                android:text="Please Check the Following boxes for Machine check"
+                android:text="Following are checked boxes for Machine check"
                 android:textColor="@color/custom_black_off"
                 android:textSize="18sp" />
 
@@ -155,34 +153,21 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Sign Below please "
+                        android:text="Sign of Head"
                         android:textColor="@color/custom_black_off"
                         android:textSize="18sp" />
 
-                    <com.github.gcacace.signaturepad.views.SignaturePad
+                    <ImageView
                         android:id="@+id/signature_pad"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:background="@color/custom_blue_light"
-                        app:clearOnDoubleClick="true"
-                        app:penColor="@color/custom_black_off"
                         app:penMaxWidth="3dp"
                         app:penMinWidth="2dp" />
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_submittt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/custom_black_off"
-                android:layout_marginTop="20dp"
-                android:text="Submit"
-                app:cornerRadius="10dp"
-                android:textColor="@color/white"
-                android:elevation="10dp" />
 
         </LinearLayout>
 

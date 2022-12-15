@@ -120,13 +120,13 @@ public class Login extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         checkSetEmailPass();
-        checkFirebaseUser();
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        checkFirebaseUser();
+
         checkSetEmailPass();
     }
 

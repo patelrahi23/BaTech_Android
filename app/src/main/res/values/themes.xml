@@ -2,28 +2,25 @@
     <!-- Base application theme. -->
     <style name="Theme.Batech_1" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
-        <item name="fontFamily">@font/open_sans</item>
+        <item name="fontFamily">@font/anekdevanagari</item>
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/custom_black_off</item>
+        <item name="colorPrimaryDark">@color/custom_orange</item>
+        <item name="colorAccent">@color/custom_black_off</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/colorPrimary</item>
-        <item name="colorSecondaryVariant">@color/colorPrimaryDark</item>
-        <item name="colorOnSecondary">@color/colorAccent</item>
+        <item name="colorSecondary">@color/custom_yellow</item>
+        <item name="colorSecondaryVariant">@color/custom_orange</item>
+        <item name="colorOnSecondary">@color/custom_black_off</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">#f6ae2d</item>
         <!-- Customize your theme here. -->
     </style>
 
     <style name="navigationTheme">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorControlHighlight">@color/colorAccent</item>
+        <item name="colorPrimary">@color/custom_yellow</item>
+        <item name="colorControlHighlight">@color/custom_black_off</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" >
-        <item name="fontFamily">@font/bubblegum_sans</item>
-    </style>
 
     <style name = "MyNewDialog" >
         <item name="android:windowCloseOnTouchOutside">true</item>
@@ -35,4 +32,5 @@
         <item name="android:backgroundDimEnabled">true</item>
 
     </style >
+    <style name="AppTheme.AppBarOverlay" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
 </resources>
