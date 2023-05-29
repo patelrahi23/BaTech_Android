@@ -11,15 +11,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.batech_1.R;
 import com.google.android.material.checkbox.MaterialCheckBox;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CheckAdapterClient  extends RecyclerView.Adapter<CheckAdapterClient.ViewHolder>{
 
     Context context;
-    List<String> cb_text;
+    ArrayList<String> cb_text;
     List<String> selectedValues;
 
-    public CheckAdapterClient(Context requireContext, List<String> cb_text1) {
+    public CheckAdapterClient(Context requireContext, ArrayList<String> cb_text1) {
         context = requireContext;
         cb_text = cb_text1;
     }

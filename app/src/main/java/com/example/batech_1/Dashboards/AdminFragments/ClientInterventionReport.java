@@ -16,10 +16,8 @@ import android.widget.Toast;
 
 import com.example.batech_1.ModelClasses.UserClass;
 import com.example.batech_1.R;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Objects;
@@ -28,7 +26,7 @@ public class ClientInterventionReport extends Fragment {
 
     FirebaseFirestore firestore;
     FirebaseAuth auth;
-    String user_name = null, uid = null;
+    String uid = null;
     UserClass user_class;
     TextInputLayout et_form_fname, et_form_email, et_form_address, et_form_phone, et_form_product_name, et_form_product_model,
             et_form_specs, et_form_report, et_form_action;
@@ -57,7 +55,13 @@ public class ClientInterventionReport extends Fragment {
         mappingIDs(view);
 
         uid = Objects.requireNonNull(auth.getCurrentUser()).getUid();
-        getData();
+
+        firestore.collection("Users").document(uid).get().addOnSuccessListener(documentSnapshot -> {
+            String user_name = documentSnapshot.getString("FullName");
+            getData(user_name);
+        }).addOnFailureListener(e -> Toast.makeText(requireActivity(), "Cannot Fetch Data, Something Went Wrong", Toast.LENGTH_SHORT).show());
+
+
 
     }
 
@@ -100,15 +104,10 @@ public class ClientInterventionReport extends Fragment {
     }
 
 
-    private void getData() {
+    private void getData(String user_name) {
 
 
        try {
-           firestore.collection("Users").document(uid).get().addOnSuccessListener(documentSnapshot -> {
-               user_name = documentSnapshot.getString("FullName");
-           }).addOnFailureListener(e -> Toast.makeText(requireActivity(), "Cannot Fetch Data, Something Went Wrong", Toast.LENGTH_SHORT).show());
-
-
            firestore.collection("Site Intervention Report").document(user_name).get().addOnSuccessListener(documentSnapshot -> {
                user_class.setRating((Double) documentSnapshot.get("Rating"));
                user_class.setComplain_number(Objects.requireNonNull(documentSnapshot.getString("Complaint Number")));

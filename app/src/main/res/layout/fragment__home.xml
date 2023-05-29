@@ -441,13 +441,14 @@
 
         </androidx.cardview.widget.CardView>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_contact_us"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/button_contact_us"
+            android:backgroundTint="@color/custom_yellow"
             android:text="Contact Us"
-            android:textColor="@color/custom_black_off"
+            android:textColor="@color/white"
             android:layout_marginTop="20dp"
             app:layout_constraintBottom_toBottomOf="@id/horizontal_end_guideline"
             app:layout_constraintEnd_toEndOf="@id/vertical_end_guideline"
